@@ -1,0 +1,30 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+
+        <div class="bg-image"></div>
+        <%- include('./partials/nav.ejs') %>
+        <div class="content">
+
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <div class="content-div">
+                        <h2><%= post.title %></h2>
+
+                            <%- post.body %>
+
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="content-div">
+                    <h2>No Posts</h2>
+                    <p>
+                        There are zero posts to display.
+                    </p>
+                </div>
+            <% }; %>
+            
+
+        </div>
+    </body>
+</html>

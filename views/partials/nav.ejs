@@ -1,0 +1,22 @@
+<div class="nav">
+    <image src="images/Hamburger_icon.png" id="Hamburger_icon" class="Hamburger_icon"/>
+    <h1 id="title"><a href="/">ELISCONT</a></h1>
+    <hr />
+</div>
+<div class="navMenu">
+    <ul>
+        <% if (user) { %>
+            <li><%= user.email %></li>
+        <% } %>
+        <% if (!user) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Register</a></li>
+        <% } else { %>
+            <li><a href="/games">Join a Game</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } %>
+        <li>About</li>
+    </ul>
+</div>
+
+<script src="hamburgerSlide.js"></script>

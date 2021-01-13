@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+:root {
+  --font1: #ffffff;
+  --red: #FE0000;
+}
+
+body {
+    background: black;
+    color: var(--font1);
+    font-size: 16px;
+    margin: 0em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#chat-window {
+    height: 300px;
+    border: red 1px solid;
+    width: 200px;
+    margin: 10px;
+}
+
+.gameInfo {
+    color:grey;
+}
