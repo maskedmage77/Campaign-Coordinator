@@ -18,8 +18,14 @@ const handleErrors = (err) => {
     }
 
     // duplicate error code
+
     if (err.code === 11000) {
-        errors.email = 'that email is already registered';
+        if (Object.keys(err.keyPattern)[0] === "email") {
+            errors.email = 'that email is already registered';
+        }
+        if (Object.keys(err.keyPattern)[0] === "username") {
+            errors.username = 'that username is already registered';
+        }
         return errors;
     }
 
@@ -51,10 +57,10 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, username, password } = req.body;
 
     try {
-        const user = await User.create({email, password});
+        const user = await User.create({email, username, password});
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000});
         return res.status(201).json({ user: user._id });

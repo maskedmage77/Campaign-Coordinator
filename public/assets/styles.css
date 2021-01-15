@@ -347,11 +347,17 @@ button {
         padding: 0em;
     }
 
+    .gameDetail {
+        border-radius: 1.5em;
+    }
+
     input,
     button {
         margin-left: 0em;
         margin-right: 0em;
         width: 100%;
+        padding: 1em;
+        border-radius: 1.5em;
     }
 }
 

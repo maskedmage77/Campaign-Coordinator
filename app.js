@@ -9,6 +9,8 @@ const authRoutes = require('./routes/authRoutes');
 const gamesRoutes = require('./routes/gamesRoutes');
 const Post = require('./models/Post');
 const Game = require('./models/Game');
+const User = require('./models/User');
+const socketConnections = require('./socketConnections');
 
 
 console.log('Starting Eliscont.');
@@ -39,29 +41,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(cookieParser());
 
-
-// socket setup
-io.on('connection', socket => {
-
-    socket.on('playerJoined', async (e) => {
-
-        // set the objects
-        var player = await Game.findOne({ 'players._id' : e.playerId },{'_id': 0,"players.$": 1 });
-        var game =  await Game.findOne({ '_id': e.gameId });
-
-        player = player.players[0];
-
-        socket.join(game._id.toString());
-
-        console.log(typeof game);
-        socket.emit('message', ({body: 'Welcome to the game '+ game.name + '.', messageType: 'gameInfo'  }));
-
-        socket.to(game._id.toString()).emit('message', ({body: 'The user ' + player.email + ' has joined.', messageType: 'gameInfo' }));
-
-    });
-
-});
-
+socketConnections(io,Game,User);
 
 // routes
 app.get('*', checkUser);
@@ -69,11 +49,19 @@ app.get('*', checkUser);
 app.get('/', (req, res) => {
     Post.find().sort({ createdAt: -1}).limit(10)
         .then((result) => {
-            res.render('index', {title: 'Home', posts: result})
+            res.render('index', {title: 'Home', posts: result});
         })
         .catch((err) => {
             console.log(err);
         });
+});
+
+app.get('/account', requireAuth, (req, res) => {
+    res.render('account', {title: 'Account'});
+});
+
+app.get('/about', requireAuth, (req, res) => {
+    res.render('about', {title: 'About'});
 });
 
 app.use(authRoutes);

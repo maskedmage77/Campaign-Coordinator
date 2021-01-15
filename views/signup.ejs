@@ -11,6 +11,8 @@
                     <h2>Sign Up</h2>
                     <input type="text" name="email" placeholder="email" required/>
                     <div id="emailError" class="error_div"></div>
+                    <input type="text" name="username" placeholder="username / display name" required/>
+                    <div id="usernameError" class="error_div"></div>
                     <input type="password" name="password" placeholder="password" required/>
                     <div id="passwordError" class="error_div"></div>
                     <button>Sign Up</button>
@@ -19,29 +21,33 @@
 
             <script>
                 const form = document.querySelector('form');
-                const emailError = document.querySelector('#emailerror');
-                const passwordError = document.querySelector('#passworderror');
+                const emailError = document.querySelector('#emailError');
+                const usernameError = document.querySelector('#usernameError');
+                const passwordError = document.querySelector('#passwordError');
 
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
                     // reset errors
                     emailError.textContent = '';
+                    usernameError.textContent = '';
                     passwordError.textContent = '';
 
                     // get the values
                     const email = form.email.value;
+                    const username = form.username.value;
                     const password = form.password.value;
 
                     try {
                         const res = await fetch('/signup', {
                             method: 'POST',
-                            body: JSON.stringify({ email, password }),
+                            body: JSON.stringify({ email, username, password }),
                             headers: { 'Content-Type': 'application/json' }
                         });
                         const data = await res.json();
                         if (data.errors) {
                             emailError.textContent = data.errors.email;
+                            usernameError.textContent = data.errors.username;
                             passwordError.textContent = data.errors.password;
                         }
                         if (data.user) {

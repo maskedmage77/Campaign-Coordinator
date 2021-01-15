@@ -2,25 +2,207 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
 
 :root {
-  --font1: #ffffff;
-  --red: #FE0000;
+    --font1: #ffffff;
+    --font2: #C0C0C0;
+    --background: #000000;
+    --window: #202020;
+    --innerWindow: #101010;
+    --forms: #101010;
+    --red: #FE0000;
+    --cyan: #00FFFF;
+    --dmColor: lightgreen;
+    --playerColor: #D4AF37;
+    --spectatorColor: grey;
+}
+
+.spectatorColor {
+    color: var(--spectatorColor);
+}
+.dmColor {
+    color: var(--dmColor);
+}
+.playerColor {
+    color: var(--playerColor);
 }
 
 body {
-    background: black;
+    background: var(--background);
     color: var(--font1);
     font-size: 16px;
     margin: 0em;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#chat-window {
-    height: 300px;
-    border: red 1px solid;
-    width: 200px;
-    margin: 10px;
+input,
+button {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--font1);
+    width: 100%;
+    font-size: 1em;
+    background-color: var(--innerWindow);
+    padding: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    outline: none;
+    display: block;
+}
+
+#gameView {
+    padding: 0.5em;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Nav Window Styles */
+
+#navWindow {
+    height: 100px;
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+/* Help Window Styles */
+
+#helpWindow {
+    height: 500px;
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+}
+
+/* Chat Window Styles */
+
+#chatWindow {
+    height: 500px;
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+}
+
+#chatWindow input {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#output {
+    background-color: var(--innerWindow);
+    overflow-y: scroll;
+    /* hidding scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    border-radius: 0.5em;
+    padding: 0.5em;
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+}
+
+#output::-webkit-scrollbar {
+  display: none;
 }
 
 .gameInfo {
+    color:white;
+}
+
+.spectatorChat {
     color:grey;
+}
+
+.playerChat {
+    color: gold;
+}
+
+.dmChat {
+    color: var(--dmColor);
+}
+
+/* Users Window Styles */
+
+#usersWindow {
+    height: 500px;
+    background: var(--window);
+    border-radius: 0.5em;
+    overflow-y: scroll;
+    /* hidding scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+}
+
+.user {
+    background-color: var(--innerWindow);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.user p {
+    margin: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.username {
+
+    font-size: 1em;
+}
+
+.role {
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    #gameView {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Nav Window Styles */
+    #navWindow {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #gameView {
+        grid-template-columns: 1fr;
+    }
+
+    /* Chat Window Styles */
+    #chatWindow input,
+    #chatWindow button {
+        padding: 1em;
+    }
+
+    /* Nav Window Styles */
+    #navWindow {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
 }
