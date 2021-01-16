@@ -3,7 +3,16 @@
     <body>
         <div id="gameView">
 
-            <div id="navWindow">nav window</div>
+            <div id="navWindow">
+                <div class="navTitle"><%= title %></div>
+                <div id="navGameButton" class="navButton"><img src='images/gameIcons/game.png' class="navIcon"/></div>
+                <div id="navChatButton" class="navButton"><img src='images/gameIcons/chat.png' class="navIcon"/></div>
+                <div id="navClientsButton" class="navButton"><img src='images/gameIcons/clients.png' class="navIcon"/></div>
+                <div id="navPlayerButton" class="navButton"><img src='images/gameIcons/player.png' class="navIcon"/></div>
+                <div id="navSettingsButton" class="navButton"><img src='images/gameIcons/settings.png' class="navIcon"/></div>
+            </div>
+
+            <div id="detailsWindow">details window</div>
 
             <div id="chatWindow">
                 <div id="output"></div>
@@ -13,8 +22,11 @@
 
             <div id="usersWindow"></div>
 
-            <div id="helpWindow">help window</div>
+            <div id="characterWindow">character window</div>
 
+            <div id="settingsWindow">settings window</div>
+
+            <div id="helpWindow">help window</div>
 
         </div>
         <script src="/play.js" /></script>

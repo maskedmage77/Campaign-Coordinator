@@ -13,6 +13,7 @@
     --dmColor: lightgreen;
     --playerColor: #D4AF37;
     --spectatorColor: grey;
+    --grey: grey;
 }
 
 .spectatorColor {
@@ -23,6 +24,12 @@
 }
 .playerColor {
     color: var(--playerColor);
+}
+.hidden {
+    display: none !important;
+}
+.grey{
+    filter: brightness(0.5);
 }
 
 body {
@@ -59,10 +66,10 @@ button {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* Nav Window Styles */
+/* Details Window Styles */
 
-#navWindow {
-    height: 100px;
+#detailsWindow {
+    height: 32em;
     background: var(--window);
     border-radius: 0.5em;
     display: grid;
@@ -70,14 +77,67 @@ button {
     column-gap: 0.5em;
     row-gap: 0.5em;
     padding: 0.5em;
+}
+
+/* Nav Window Styles */
+
+#navWindow {
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
     grid-column-start: 1;
     grid-column-end: 4;
+    grid-template-columns: 1fr 4em 4em 4em 4em 4em;
+}
+
+.navTitle {
+    padding-top: 0.5em;
+    font-size: 2em;
+}
+
+.navIcon {
+    width: 100%;
+}
+
+.navButton {
+    background-color: var(--innerWindow);
+    border-radius: 25%;
+    width: 4em;
 }
 
 /* Help Window Styles */
 
 #helpWindow {
-    height: 500px;
+    height: 32em;
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+}
+
+/* Character Window Styles */
+
+#characterWindow {
+    height: 32em;
+    background: var(--window);
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    padding: 0.5em;
+}
+
+/* Settings Window Styles */
+
+#settingsWindow {
+    height: 32em;
     background: var(--window);
     border-radius: 0.5em;
     display: grid;
@@ -90,7 +150,7 @@ button {
 /* Chat Window Styles */
 
 #chatWindow {
-    height: 500px;
+    height: 32em;
     background: var(--window);
     border-radius: 0.5em;
     display: grid;
@@ -138,10 +198,22 @@ button {
     color: var(--dmColor);
 }
 
+.diceRoll {
+    color: var(--grey);
+    text-align: center;
+}
+
+.diceRollTotal {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    margin: 0.5em;
+}
+
 /* Users Window Styles */
 
 #usersWindow {
-    height: 500px;
+    height: 32em;
     background: var(--window);
     border-radius: 0.5em;
     overflow-y: scroll;
@@ -183,9 +255,15 @@ button {
     }
 
     /* Nav Window Styles */
+
     #navWindow {
         grid-column-start: 1;
         grid-column-end: 3;
+    }
+
+    .navTitle {
+        font-size: 1em;
+        text-align: center;
     }
 }
 
@@ -194,15 +272,38 @@ button {
         grid-template-columns: 1fr;
     }
 
+    /* Nav Window Styles */
+
+    #navWindow {
+        background: var(--window);
+        border-radius: 0.5em;
+        display: grid;
+        column-gap: 0.5em;
+        row-gap: 0.5em;
+        padding: 0.5em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    }
+
+    .navTitle {
+        padding-top: 0.5em;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    .navIcon {
+        width: 100%;
+    }
+
+    .navButton {
+        width: auto;
+    }
+
     /* Chat Window Styles */
+
     #chatWindow input,
     #chatWindow button {
         padding: 1em;
-    }
-
-    /* Nav Window Styles */
-    #navWindow {
-        grid-column-start: 1;
-        grid-column-end: 2;
     }
 }

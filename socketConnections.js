@@ -56,6 +56,10 @@ const socketConnections = (io,Game,User) => {
                 else if (i.type === "spectatorChat") {
                     socket.emit('messageTop', ({body: i.body.toString(), messageType: 'spectatorChat', username: i.senderUsername, 'createdAt': i.createdAt}));
                 }
+                else if (i.type === "diceRoll") {
+                    socket.emit('messageTop', ({body: i.body.toString(), messageType: 'diceRoll', username: i.senderUsername, 'createdAt': i.createdAt}));
+
+                }
             });
 
             // send welcome message to newly connected user
@@ -124,19 +128,21 @@ const socketConnections = (io,Game,User) => {
                     if (data.body.toString().match(/\+/i)) {
                         var addition = data.body.toString().split(/[d|\s|\+]+/i).slice(-1)[0];
                         var total = rolledTotal + parseInt(addition);
-                        var rollMessage = rolled.toString() + ' : ' + rolledTotal + ' : +' + addition + ' : ' + total;
+                        var rollMessage = rolled.toString() + ' : ' + roll[2] + ' : ' + rolledTotal + ' : +' + addition + ' : ' + total;
                     }
                     else if (data.body.toString().match(/\-/i)) {
                         var subtraction = data.body.toString().split(/[d|\s|\-]+/i).slice(-1)[0];
                         var total = rolledTotal - parseInt(subtraction);
-                        var rollMessage = rolled.toString() + ' : ' + rolledTotal + ' : -' + subtraction + ' : ' + total;
+                        var rollMessage = rolled.toString() + ' : ' + roll[2] + ' : ' + rolledTotal + ' : -' + subtraction + ' : ' + total;
                     }
                     else {
                         var total = rolledTotal;
-                        var rollMessage = rolled.toString() + ' : ' + rolledTotal + ' :none: ' + total;
+                        var rollMessage = rolled.toString() + ' : ' + roll[2] + ' : ' + rolledTotal + ' : 0 : ' + total;
                     }
+
                     console.log(rollMessage);
-                    //io.in(game._id.toString()).emit('message', ({body: rollMessage, messageType: 'diceRoll', username: player.username}));
+                    io.in(game._id.toString()).emit('message', ({body: rollMessage, messageType: 'diceRoll', username: player.username}));
+                    const message = await Message.create({game: game._id, type: 'diceRoll', senderEmail: player.email, senderUsername: player.username, body: rollMessage})
                 }
 
                 // regular chats

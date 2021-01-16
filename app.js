@@ -60,7 +60,7 @@ app.get('/account', requireAuth, (req, res) => {
     res.render('account', {title: 'Account'});
 });
 
-app.get('/about', requireAuth, (req, res) => {
+app.get('/about', (req, res) => {
     res.render('about', {title: 'About'});
 });
 
