@@ -146,6 +146,10 @@ hr {
     touch-action: none;
 }
 
+.navMenu::-webkit-scrollbar {
+  display: none;
+}
+
 .navMenu ul {
     padding: 0em;
     padding-top: 0.5em;

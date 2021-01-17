@@ -225,6 +225,10 @@ button {
     padding: 0.5em;
 }
 
+#usersWindow::-webkit-scrollbar {
+  display: none;
+}
+
 .user {
     background-color: var(--innerWindow);
     border-radius: 0.5em;
@@ -287,9 +291,7 @@ button {
     }
 
     .navTitle {
-        padding-top: 0.5em;
-        grid-column-start: 1;
-        grid-column-end: 6;
+        display: none;
     }
 
     .navIcon {

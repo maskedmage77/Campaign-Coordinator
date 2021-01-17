@@ -11,7 +11,8 @@ var detailsWindow = document.getElementById('detailsWindow'),
     characterWindow = document.getElementById('characterWindow'),
     settingsWindow = document.getElementById('settingsWindow'),
     helpWindow = document.getElementById('helpWindow');
-    pageWidth = window.innerWidth;
+    pageWidth = window.innerWidth,
+    beenBig = false;
 // Nav Elements
 var navGameButton = document.getElementById('navGameButton'),
     navChatButton = document.getElementById('navChatButton'),
@@ -27,10 +28,14 @@ var message = document.getElementById('message'),
 // Adjust pageWidth variable if window size changes
 window.addEventListener('resize', function(){
     pageWidth = window.innerWidth;
-    if (pageWidth <= 600) {
+    if (pageWidth <= 600 && beenBig === true) {
+        beenBig = false;
         hideWindows();
         detailsWindow.classList.remove("hidden");
         navGameButton.classList.remove('grey');
+    }
+    else if (pageWidth > 600 && beenBig === false) {
+        beenBig = true;
     }
 });
 
