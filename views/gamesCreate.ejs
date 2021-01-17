@@ -1,18 +1,15 @@
 <html>
     <%- include('./partials/head.ejs') %>
     <body>
-
-        <div class="bg-image"></div>
+        <div class="contentView">
         <%- include('./partials/nav.ejs') %>
-        <div class="content">
-
-            <div class="content-div" id="createGame">
+            <div class="contentWindow" id="createGame">
                 <form>
                     <h2>Create Game</h2>
                     <input type="text" name="name" placeholder="Game name..." required/>
-                    <div id="nameError" class="error_div"></div>
+                    <div id="nameError" class="errorDiv"></div>
                     <input type="password" name="password" placeholder="password" required/>
-                    <div id="passwordError" class="error_div"></div>
+                    <div id="passwordError" class="errorDiv"></div>
                     <button>Create Game</button>
                 </form>
             </div>
@@ -22,8 +19,13 @@
                 const nameError = document.querySelector('#nameError');
                 const passwordError = document.querySelector('#passwordError');
 
+                nameError.classList.add('hidden');
+                passwordError.classList.add('hidden');
+
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    nameError.classList.add('hidden');
+                    passwordError.classList.add('hidden');
 
                     // reset errors
                     nameError.textContent = '';
@@ -43,6 +45,12 @@
                         if (data.errors) {
                             nameError.textContent = data.errors.name;
                             passwordError.textContent = data.errors.password;
+                            if (nameError.textContent !== '') {
+                                nameError.classList.remove('hidden');
+                            }
+                            if (passwordError.textContent !== '') {
+                                passwordError.classList.remove('hidden');
+                            }
                         }
                         if (data.game) {
                             location.assign('/games');
@@ -53,7 +61,6 @@
                     }
                 });
             </script>
-
         </div>
     </body>
 </html>

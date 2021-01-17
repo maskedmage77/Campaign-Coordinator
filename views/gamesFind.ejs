@@ -1,12 +1,9 @@
 <html>
     <%- include('./partials/head.ejs') %>
     <body>
-
-        <div class="bg-image"></div>
+        <div class="contentView">
         <%- include('./partials/nav.ejs') %>
-        <div class="content">
-
-            <div class="content-div" id="createGame">
+            <div class="findWindow" id="createGame">
                 <h2>Find Game</h2>
                 <div class="gamesList">
                 </div>
@@ -17,7 +14,7 @@
                     <button>Find Game</button>
                 </form>
             </div>
-            <form id="joinGame" hidden method="post" action="join">
+            <form id="joinGame" style="display:none" method="post" action="join">
                 <input name="game" id="inputGame" value="">
                 <input name="role" id="inputRole" value="">
             </form>
@@ -27,9 +24,12 @@
                 const gamesList = document.querySelector('.gamesList');
                 gamesList.style.display = "none";
 
+                nameError.classList.add('hidden');
+
                 window.addEventListener('load', function () {
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
+                        nameError.classList.add('hidden');
 
                         // reset errors
                         nameError.textContent = '';
@@ -47,6 +47,9 @@
                             const data = await res.json();
                             if (data.errors) {
                                 nameError.textContent = data.errors.name;
+                                if (nameError.textContent !== '') {
+                                    nameError.classList.remove('hidden');
+                                }
 
                             }
                             if (data.game) {
@@ -56,8 +59,8 @@
                                     '<div class="gameDetail" data-game="'+game._id+'">'+
                                         '<h3 class="gameDetailName">'+game.name+'</h3>'+
                                         '<p>Number of players: </p><p>'+game.players.length+'</p>'+
-                                        '<button id="'+game._id+':'+'Spectator'+'">Join as Spectator</button>'+
-                                        '<button id="'+game._id+':'+'Player'+'">Join as Player</button>'+
+                                        '<button id="'+game._id+':'+'Spectator'+'" class="bottomMargin">Join as Spectator</button>'+
+                                        '<button id="'+game._id+':'+'Player'+'" class="bottomMargin">Join as Player</button>'+
                                     '</div>';
                                     document.getElementById(game._id+':'+'Spectator').addEventListener('click', () => {
                                         //window.location.replace("/games/join/"+game._id);
@@ -69,7 +72,7 @@
                                             '<form id="'+game._id+'">'+
                                                 '<input style="display: none;" name="game" id="inputGame" value="'+game._id+'">'+
                                                 '<input type="password" name="password" id="inputGame" value="" placeholder="password...">'+
-                                                '<div id="passwordError" class="error_div"></div>'+
+                                                '<div id="passwordError" class="errorDiv hidden"></div>'+
                                                 '<button>Join as Spectator</button>'+
                                             '</form>'+
                                         '</div>';
@@ -87,6 +90,9 @@
                                                 const data = await res.json();
                                                 if (data.errors) {
                                                     passwordError.textContent = data.errors.password;
+                                                    if (passwordError.textContent !== '') {
+                                                        passwordError.classList.remove('hidden');
+                                                    }
                                                 }
                                                 if (data._id) {
                                                     location.assign('/games');

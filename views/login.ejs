@@ -1,58 +1,70 @@
 <html>
     <%- include('./partials/head.ejs') %>
     <body>
-        <div class="bg-image"></div>
-        <%- include('./partials/nav.ejs') %>
-        <div class="content">
 
+        <div class="contentView">
 
-            <div class="content-div">
-                <form class="login_form">
+            <%- include('./partials/nav.ejs') %>
+
+            <div class="contentWindow">
+                <form class="loginForm">
                     <h2>Login</h2>
                     <input type="text" name="email" placeholder="email" required/>
-                    <div id="emailError" class="error_div"></div>
+                    <div id="emailError" class="errorDiv"></div>
                     <input type="password" name="password" placeholder="password" required/>
-                    <div id="passwordError" class="error_div"></div>
+                    <div id="passwordError" class="errorDiv"></div>
                     <button>Login</button>
                 </form>
             </div>
+        </div>
 
-            <script>
-                const form = document.querySelector('form');
-                const emailError = document.querySelector('#emailerror');
-                const passwordError = document.querySelector('#passwordError');
+        <script>
+            const form = document.querySelector('form');
+            const emailError = document.querySelector('#emailerror');
+            const passwordError = document.querySelector('#passwordError');
 
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
+            emailError.classList.add('hidden');
+            passwordError.classList.add('hidden');
 
-                    // reset errors
-                    emailError.textContent = '';
-                    passwordError.textContent = '';
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                emailError.classList.add('hidden');
+                passwordError.classList.add('hidden');
 
-                    // get the values
-                    const email = form.email.value;
-                    const password = form.password.value;
+                // reset errors
+                emailError.textContent = '';
+                passwordError.textContent = '';
 
-                    try {
-                        const res = await fetch('/login', {
-                            method: 'POST',
-                            body: JSON.stringify({ email, password }),
-                            headers: { 'Content-Type': 'application/json' }
-                        });
-                        const data = await res.json();
-                        if (data.errors) {
-                            emailError.textContent = data.errors.email;
-                            passwordError.textContent = data.errors.password;
+                // get the values
+                const email = form.email.value;
+                const password = form.password.value;
+
+                try {
+                    const res = await fetch('/login', {
+                        method: 'POST',
+                        body: JSON.stringify({ email, password }),
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    const data = await res.json();
+                    if (data.errors) {
+                        emailError.textContent = data.errors.email;
+                        passwordError.textContent = data.errors.password;
+                        if (emailError.textContent !== '') {
+                            emailError.classList.remove('hidden');
                         }
-                        if (data.user) {
-                            location.assign('/');
+                        if (passwordError.textContent !== '') {
+                            passwordError.classList.remove('hidden');
                         }
                     }
-                    catch (err) {
-                        console.log(err);
+                    if (data.user) {
+                        location.assign('/');
                     }
-                })
-            </script>
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            })
+        </script>
 
         </div>
     </body>

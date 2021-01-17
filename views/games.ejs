@@ -1,14 +1,10 @@
 <html>
     <%- include('./partials/head.ejs') %>
     <body>
-
-        <div class="bg-image"></div>
-        <%- include('./partials/nav.ejs') %>
-        <div class="content">
-
-            <div class="content-div" id="gamesMenu">
+        <div class="contentView">
+            <%- include('./partials/nav.ejs') %>
+                <div class="gamesWindow">
                     <h2 class="">Games</h2>
-                    <div class="gamesList">
                     <% if (games.length > 0) { %>
                         <% games.forEach(games => { %>
                             <% games.players.forEach((player, i = 0) => { %>
@@ -25,7 +21,7 @@
                                 <% } %>
                             <% }); %>
                         <% }); %>
-                        <form id="playGame" hidden method="post" action="play">
+                        <form id="playGame" style="display:none" method="post" action="play">
                             <input name="gameId" id="inputGame" value="">
                             <input name="playerId" id="inputPlayer" value="">
                         </form>
@@ -48,9 +44,9 @@
                             }
                         </script>
                     <% }; %>
-                    </div>
                     <a href="./find"><button>Find Game</button></a>
                     <a href="./create"><button>Create Game</button></a>
+                </div>
             </div>
         </div>
     </body>

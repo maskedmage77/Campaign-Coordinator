@@ -2,29 +2,27 @@
     <%- include('./partials/head.ejs') %>
     <body>
 
-        <div class="bg-image"></div>
-        <%- include('./partials/nav.ejs') %>
-        <div class="content">
+        <div class="contentView">
+
+            <%- include('./partials/nav.ejs') %>
 
             <% if (posts.length > 0) { %>
                 <% posts.forEach(post => { %>
-                    <div class="content-div">
+                    <div class="contentWindow">
                         <h2><%= post.title %></h2>
-
                             <%- post.body %>
-
                     </div>
                 <% }); %>
             <% } else { %>
-                <div class="content-div">
+                <div class="contentWindow">
                     <h2>No Posts</h2>
                     <p>
                         There are zero posts to display.
                     </p>
                 </div>
             <% }; %>
-            
-
         </div>
+
+
     </body>
 </html>
