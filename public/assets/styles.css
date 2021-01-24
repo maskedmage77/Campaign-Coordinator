@@ -40,7 +40,8 @@ a {
 }
 
 input,
-button {
+button,
+textarea {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--font2);
     font-size: 1em;
@@ -54,11 +55,16 @@ button {
     box-sizing: border-box;
     -webkit-appearance: none;
     outline: none;
-        transition: 0.2s;
+    transition: 0.2s;
 }
 
 button {
     margin-bottom: 0em;
+}
+
+textarea {
+    resize: vertical;
+    height: 20em;
 }
 
 .errorDiv {

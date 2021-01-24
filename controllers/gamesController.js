@@ -55,9 +55,9 @@ module.exports.create_post = async (req, res) => {
 
     checkUser().then(async (data) => {
         const creator = data;
-        const { name, password } = req.body;
+        const { name, password, description } = req.body;
         try {
-            const game = await Game.create({name, players: {email: data, role: 'Dungeon Master'}, password});
+            const game = await Game.create({name, description, players: {email: data, role: 'Dungeon Master'}, password});
             return res.status(201).json({ game: game._id });
             res.redirect('/games');
         }

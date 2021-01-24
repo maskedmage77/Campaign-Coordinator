@@ -72,11 +72,76 @@ button {
     height: 32em;
     background: var(--window);
     border-radius: 0.5em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 0.5em;
     row-gap: 0.5em;
     padding: 0.5em;
+    position: relative;
+}
+
+#detailsWindow a {
+    text-decoration: none;
+    color: var(--dmColor);
+}
+
+#detailsWindow textarea {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--font1);
+    width: 100%;
+    font-size: 1em;
+    background-color: var(--innerWindow);
+    padding: 0.5em;
+    margin: 0em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    border: 0px;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    outline: none;
+    display: block;
+    resize: none;
+    height: calc(100% - 2.75em);
+}
+
+#CampaignDescription h1 {
+    text-align: center;
+}
+
+#CampaignDescription img {
+    max-width: 100%;
+    border-radius: 0.5em;
+    float: left;
+    margin-bottom: 1em;
+}
+
+#CampaignDescription {
+    height: 100%;
+    overflow-y: scroll;
+    /* hidding scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#CampaignDescription::-webkit-scrollbar {
+  display: none;
+}
+
+.editCampaignDescription {
+    width: 3em;
+    height: 3em;
+    position:absolute;
+    bottom:0.5em;
+    right: 0.5em;
+    background-color: var(--innerWindow);
+    border-radius: 0.5em;
+}
+
+.editCampaignDescription img {
+    width: 2em;
+    position: absolute;
+    top: 0.4em;
+    left: 0.6em;
 }
 
 /* Nav Window Styles */
@@ -155,6 +220,7 @@ button {
     border-radius: 0.5em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr min-content;
     column-gap: 0.5em;
     row-gap: 0.5em;
     padding: 0.5em;
@@ -304,8 +370,14 @@ button {
 
     /* Chat Window Styles */
 
-    #chatWindow input,
-    #chatWindow button {
+    input,
+    button {
         padding: 1em;
+    }
+
+    /* detailsWindow */
+
+    #detailsWindow textarea {
+        height: calc(100% - 3.75em);
     }
 }

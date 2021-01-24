@@ -1,5 +1,5 @@
 {
-  "name": "eliscont",
+  "name": "campaign-coordinator",
   "version": "1.0.0",
   "description": "A player hub for the D&D campaign Eliscont. ",
   "main": "app.js",
@@ -19,5 +19,13 @@
     "nodemon": "^2.0.7",
     "socket.io": "^3.0.5",
     "validator": "^13.5.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maskedmage77/Campaign-Coordinator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maskedmage77/Campaign-Coordinator/issues"
+  },
+  "homepage": "https://github.com/maskedmage77/Campaign-Coordinator#readme"
 }

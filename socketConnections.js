@@ -2,7 +2,7 @@ const Message = require('./models/Message');
 
 var userList = [];
 
-function diceRoll(diceCount, diceSides) {
+function diceRoll (diceCount, diceSides) {
     var rolls = [];
     for (i = 0; i < diceCount; i++) {
         rolls[i] = 1 + Math.floor(Math.random() * diceSides);
@@ -38,13 +38,22 @@ const socketConnections = (io,Game,User) => {
             socket.join(game._id.toString());
 
             // add newly connected user to userList
-            userList.push(player);
+            var testboy = player;
+            Object.assign(testboy, {game_id: game._id.toString()});
+            userList.push(testboy);
 
             // send userList
-            io.in(game._id.toString()).emit('userListUpdate', ({userList: userList}));
+            var userListFiltered = userList.filter(user => user.game_id == game._id);
+            io.in(game._id.toString()).emit('userListUpdate', ({userList: userListFiltered}));
+
+            // send new player their role
+            socket.emit('playerRole', player.role);
+
+            // send game description
+            socket.emit('gameDescription', game.description);
 
             // get previous 20 messages for newly connected user
-            var msgs = await Message.find().sort( [['createdAt', -1]] ).limit(20);
+            var msgs = await Message.find({game: game._id}).sort( [['createdAt', -1]] ).limit(20);
 
             msgs.forEach((i) => {
                 if (i.type === "playerChat") {
@@ -74,9 +83,15 @@ const socketConnections = (io,Game,User) => {
             }
         });
 
+        socket.on('gameDescription', async (data) => {
+            game.description = data.description;
+            await game.save();
+            io.in(game._id.toString()).emit('gameDescription', data.description);
+        });
+
         socket.on('messageTop', async (e) => {
             // get 10 messages to add to top of chat
-            var msgs = await Message.find({createdAt: {$lt: e.oldestMsg}}).sort( [['createdAt', -1]] ).limit(10);
+            var msgs = await Message.find({createdAt: {$lt: e.oldestMsg}, game: game._id}).sort( [['createdAt', -1]] ).limit(10);
             msgs.forEach((i) => {
                 if (i.type === "playerChat") {
                     socket.emit('messageTop', ({body: i.body.toString(), messageType: 'playerChat', username: i.senderUsername, 'createdAt': i.createdAt}));
@@ -101,7 +116,8 @@ const socketConnections = (io,Game,User) => {
                 }
 
                 // send updated userList
-                io.in(game._id.toString()).emit('userListUpdate', ({userList: userList}));
+                var userListFiltered = userList.filter(user => user.game_id == game._id);
+                io.in(game._id.toString()).emit('userListUpdate', ({userList: userListFiltered}));
                 socket.to(game._id.toString()).emit('message', ({body: player.username + ' has left.', messageType: 'gameInfo' }));
             }
             catch {
@@ -112,8 +128,6 @@ const socketConnections = (io,Game,User) => {
 
         socket.on('message', async (data) =>{
             if (data.body !== "") {
-
-                // testing commands
 
                 // roll command
                 if (data.body.toString().match(/^\/(r|roll) /i)) {

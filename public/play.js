@@ -1,5 +1,7 @@
 // Make socket connection
 var socket = io();
+var converter = new showdown.Converter();
+// converter.setOption('simpleLineBreaks', true);
 
 // Joined Game
 socket.emit('userJoined', { playerId , gameId });
@@ -23,7 +25,8 @@ var navGameButton = document.getElementById('navGameButton'),
 var message = document.getElementById('message'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
-    userList = [];
+    userList = [],
+    role = '';
 
 // Adjust pageWidth variable if window size changes
 window.addEventListener('resize', function(){
@@ -81,6 +84,28 @@ function addNavListeners(button, w) {
     });
 };
 
+function editCampaignDescription() {
+    var markdown = converter.makeMarkdown(CampaignDescription.innerHTML);
+    detailsWindow.innerHTML = '';
+
+    var textarea = document.createElement("textarea");
+    var saveButton = document.createElement("button");
+    textarea.id = 'CampaignDescriptionNew';
+    saveButton.id = 'SaveDescription';
+    textarea.innerHTML = markdown;
+    saveButton.innerText = 'Save Changes';
+
+    detailsWindow.appendChild(textarea);
+    detailsWindow.appendChild(saveButton);
+
+    document.getElementById('SaveDescription').addEventListener('click', function(){
+        var CampaignDescriptionNew = document.getElementById('CampaignDescriptionNew');
+        var description = CampaignDescriptionNew.value;
+        detailsWindow.innerHTML = '';
+        socket.emit('gameDescription', {description: description});
+    });
+}
+
 // adding listeners
 addNavListeners(navGameButton, detailsWindow);
 addNavListeners(navChatButton, chatWindow);
@@ -91,7 +116,6 @@ addNavListeners(navSettingsButton, settingsWindow);
 // load more messages if at top of chatWindow
 output.addEventListener("scroll", function(){
     if (output.scrollTop === 0) {
-        console.log(output.firstChild.getAttribute("data-created-at"));
         socket.emit('messageTop', { oldestMsg: output.firstChild.getAttribute("data-created-at")});
     }
 });
@@ -132,9 +156,6 @@ document.addEventListener("DOMContentLoaded", function(){
             output.innerHTML += '<p class="diceRoll"></p>';
             var rollDetails = data.body.toString().split(/\s:\s/i);
             var rollCount = rollDetails[0].toString().split(/,/i);
-
-            console.log(rollDetails);
-            console.log(rollCount.length);
 
             if (rollCount.length === 1) {
                 output.lastChild.innerHTML = data.username +
@@ -203,6 +224,10 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
+    socket.on('playerRole', (data) => {
+        role = data;
+    });
+
     socket.on('userListUpdate', (data) => {
 
         // add new users to client side list
@@ -242,11 +267,39 @@ document.addEventListener("DOMContentLoaded", function(){
         var test = data.userList.map(x => x._id);
         userList.forEach((clientItem, i) => {
             if (!test.includes(clientItem)) {
-                console.log('not found!');
                 var item = document.querySelector('[data-player-id="'+clientItem+'"]');
                 item.remove();
                 userList.splice(i, 1);
             }
         });
+    });
+
+    socket.on('gameDescription', (data) => {
+        detailsWindow.innerHTML = '';
+        var html = converter.makeHtml(data);
+        var div = document.createElement("div");
+        div.id = 'CampaignDescription';
+        div.innerHTML = html;
+        detailsWindow.appendChild(div);
+
+        if (role == "Dungeon Master") {
+
+            var img = document.createElement("img");
+            //img.classList.add('editCampaignDescription');
+            //img.id = 'editCampaignDescription';
+            img.src = "images/gameIcons/edit.png";
+            //detailsWindow.appendChild(img);
+
+            var div = document.createElement("div");
+            div.classList.add('editCampaignDescription');
+            div.id = 'editCampaignDescription';
+            div.appendChild(img);
+            detailsWindow.appendChild(div);
+
+            document.getElementById('editCampaignDescription').addEventListener("click", function() {
+                editCampaignDescription();
+            });
+        }
+
     });
 });

@@ -6,8 +6,9 @@
             <div class="contentWindow" id="createGame">
                 <form>
                     <h2>Create Game</h2>
-                    <input type="text" name="name" placeholder="Game name..." required/>
+                    <input type="text" name="name" placeholder="name" required/>
                     <div id="nameError" class="errorDiv"></div>
+                    <textarea placeholder="description" name="description"></textarea>
                     <input type="password" name="password" placeholder="password" required/>
                     <div id="passwordError" class="errorDiv"></div>
                     <button>Create Game</button>
@@ -34,11 +35,12 @@
                     // get the values
                     const name = form.name.value;
                     const password = form.password.value;
+                    const description = form.description.value;
 
                     try {
                         const res = await fetch('/games/create', {
                             method: 'POST',
-                            body: JSON.stringify({ name, password }),
+                            body: JSON.stringify({ name, password, description }),
                             headers: { 'Content-Type': 'application/json' }
                         });
                         const data = await res.json();

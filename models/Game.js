@@ -7,6 +7,9 @@ const gameSchema = new mongoose.Schema({
         required: [true, 'Please enter a name'],
         unique: true
     },
+    description: {
+      type: String
+    },
     players: [{
         email: {
             type: String
