@@ -84,9 +84,11 @@ const socketConnections = (io,Game,User) => {
         });
 
         socket.on('gameDescription', async (data) => {
-            game.description = data.description;
-            await game.save();
-            io.in(game._id.toString()).emit('gameDescription', data.description);
+            if (player.role == "Dungeon Master") {
+                game.description = data.description;
+                await game.save();
+                io.in(game._id.toString()).emit('gameDescription', data.description);
+            }
         });
 
         socket.on('messageTop', async (e) => {
