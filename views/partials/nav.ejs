@@ -1,17 +1,14 @@
-<div class="titleWindow">
-    <h1><a href="/">Campaign Coordinator</a></h1>
-</div>
-
-<div class="navWindow">
-    <% if (user) { %>
-        <p><a href="/account">Account</a></p>
-    <% } %>
-    <% if (!user) { %>
-        <p><a href="/login">Login</a></p>
-        <p><a href="/signup">Register</a></p>
-    <% } else { %>
-        <p><a href="/games">Games</a></p>
-        <p><a href="/logout">Logout</a></p>
-    <% } %>
-    <p><a href="/about">About</a></p>
+<div class="navBox">
+    <p class="title"><a href="/">Campaign Coordinator</a></p>
+    <div class="navWindow">
+        <% if (!user) { %>
+            <p><a href="/signup">Register</a></p>
+            <p><a href="/login">Login</a></p>
+        <% } else { %>
+            <p><a href="/account">Account</a></p>
+            <p><a href="/characters">Characters</a></p>
+            <p><a href="/games">Games</a></p>
+            <p><a href="/logout">Logout</a></p>
+        <% } %>
+    </div>
 </div>

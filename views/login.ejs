@@ -5,17 +5,19 @@
         <div class="contentView">
 
             <%- include('./partials/nav.ejs') %>
-
-            <div class="contentWindow">
-                <form class="loginForm">
-                    <h2>Login</h2>
-                    <input type="text" name="email" placeholder="email" required/>
-                    <div id="emailError" class="errorDiv"></div>
-                    <input type="password" name="password" placeholder="password" required/>
-                    <div id="passwordError" class="errorDiv"></div>
-                    <button>Login</button>
-                </form>
+            <div class="mainWindow">
+                <div class="contentWindow">
+                    <form class="loginForm">
+                        <h2>Login</h2>
+                        <input type="text" name="email" placeholder="email" required/>
+                        <div id="emailError" class="errorDiv"></div>
+                        <input type="password" name="password" placeholder="password" required/>
+                        <div id="passwordError" class="errorDiv"></div>
+                        <button>Login</button>
+                    </form>
+                </div>
             </div>
+            <%- include('./partials/footer.ejs') %>
         </div>
 
         <script>

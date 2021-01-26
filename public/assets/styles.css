@@ -14,7 +14,10 @@
     --playerColor: #D4AF37;
     --spectatorColor: grey;
     --grey: grey;
+    --accentColor: #FF4E21;
 }
+
+
 
 body {
     background: var(--background);
@@ -28,6 +31,7 @@ form{
     display: grid;
     column-gap: 1em;
     row-gap: 1em;
+    margin-bottom: 0.5em;
 }
 
 form h2 {
@@ -46,7 +50,7 @@ textarea {
     color: var(--font2);
     font-size: 1em;
     width: 100%;
-    background-color: var(--innerWindow);
+    background-color: var(--window);
     padding: 0.5em;
     margin-left: auto;
     margin-right: auto;
@@ -79,14 +83,29 @@ textarea {
 .contentView {
     display: grid;
     grid-template-columns: 1fr 568px 1fr;
-    column-gap: 0.5em;
-    row-gap: 0.5em;
-    padding: 0.5em;
+    height: calc(100vh - 1px);
+    grid-template-areas:
+            "nav nav nav"
+            ". main ."
+            "footer footer footer";
+    grid-template-rows: 3.2em 1fr 3.2em;
+}
+
+@media screen and (max-width: 900px) {
+    .contentView {
+        grid-template-rows: 5.75em 1fr 3.2em;
+
+    }
 }
 
 @media screen and (max-width: 600px) {
     .contentView {
-        grid-template-columns: 1fr;
+        grid-template-rows: 5.75em 1fr 6.4em;
+        grid-template-columns:  1fr ;
+        grid-template-areas:
+                "nav nav nav"
+                "main main main"
+                "footer footer footer";
     }
 
     input,
@@ -97,43 +116,46 @@ textarea {
 
 /* Title & Nav Window Styles */
 
-.titleWindow {
+.navBox {
     grid-column-start: 1;
     grid-column-end: 4;
-    text-align: center;
-    background: var(--window);
-    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border-bottom: 1px solid #DA3B01; */
+    filter: drop-shadow(0 0 10px var(--innerWindow));
+    background-color: var(--innerWindow);
 }
 
-.titleWindow h1 {
-    font-size: 2em;
-    transition: 0.2s;
+.title {
+    text-align: left;
+    padding-left: 1em;
+    margin-bottom: 0em;
+    color: var(--accentColor);
 }
 
-@media screen and (max-width: 600px) {
-    .titleWindow {
-        grid-column-start: 1;
-        grid-column-end: 2;
+@media screen and (max-width: 900px) {
+    .navBox {
+        grid-template-columns: 1fr;
     }
 
-    .titleWindow h1 {
+    .title {
+        padding: 0em;
+        text-align: center;
         font-size: 1.5em;
+        margin-top: 0.5em;
     }
 }
 
 /* Nav Window Styles */
 
 .navWindow {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    background: var(--window);
-    border-radius: 0.5em;
     display: grid;
     grid-auto-flow: column;
 }
 
 .navWindow p {
-    justify-self: center;
+    text-align: center;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -147,20 +169,19 @@ textarea {
 
 .contentWindow,
 .findWindow {
+    padding: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    background: var(--window);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background: var(--innerWindow);
     border-radius: 0.5em;
+    height: auto;
+    filter: drop-shadow(0 0 10px var(--innerWindow));
 }
 
-@media screen and (max-width: 600px) {
-    .contentWindow,
-    .findWindow {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
+.mainWindow {
+    grid-area: main;
 }
 
 /* Games Window Styles */
@@ -169,12 +190,15 @@ textarea {
     display: grid;
     grid-column-start: 2;
     grid-column-end: 3;
-    background: var(--window);
+    background: var(--innerWindow);
     border-radius: 0.5em;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1em;
     row-gap: 1em;
     padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    filter: drop-shadow(0 0 10px var(--innerWindow));
 }
 
 .gamesWindow h2 {
@@ -192,33 +216,31 @@ textarea {
 
 .gameDetail {
     text-align: center;
-    background-color: var(--innerWindow);
+    background-color: var(--window);
     border-radius: 0.5em;
 }
 
 .gameDetail p:nth-child(2n + 1) {
-    color: var(--cyan);
+    color: var(--accentColor);
+}
+
+.gameDetail form {
+    margin-bottom: 1em;
 }
 
 .gameDetail button {
     width: calc(100% - 2em);
-    background-color: #202020;
-    /* margin-left: 0.5em;
-    margin-right: 0.5em;
-    margin-bottom: 1em; */
+    background-color: var(--innerWindow);
 }
 .gameDetail input {
     width: calc(100% - 2em);
-    background-color: #202020;
-    /* margin-left: 0.5em;
-    margin-right: 0.5em;
-    margin-bottom: 1em; */
+    background-color: var(--innerWindow);
 }
 
 @media screen and (max-width: 600px) {
     .gamesWindow {
         grid-column-start: 1;
-        grid-column-end: 2;
+        grid-column-end: 4;
     }
 
     .gameDetail {
@@ -231,7 +253,6 @@ textarea {
 
 .findWindow {
     display: grid;
-    margin: 1em;
     row-gap: 1em;
     column-gap: 1em;
 }
@@ -243,4 +264,27 @@ textarea {
 
 .bottomMargin {
     margin-bottom: 1em;
+}
+
+/* Footer Window */
+
+.footerWindow {
+    background-color: var(--innerWindow);
+    grid-area: footer;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+    filter: drop-shadow(0 0 10px var(--innerWindow));
+}
+
+@media screen and (max-width: 900px) {
+    .footerWindow {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footerWindow {
+        grid-template-columns: 1fr 2fr;
+    }
 }

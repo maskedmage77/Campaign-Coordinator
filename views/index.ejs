@@ -6,6 +6,7 @@
 
             <%- include('./partials/nav.ejs') %>
 
+            <div class="mainWindow">
             <% if (posts.length > 0) { %>
                 <% posts.forEach(post => { %>
                     <div class="contentWindow">
@@ -21,7 +22,12 @@
                     </p>
                 </div>
             <% }; %>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+
         </div>
+
 
 
     </body>

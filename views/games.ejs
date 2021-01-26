@@ -3,6 +3,8 @@
     <body>
         <div class="contentView">
             <%- include('./partials/nav.ejs') %>
+
+            <div class="mainWindow">
                 <div class="gamesWindow">
                     <h2 class="">Games</h2>
                     <% if (games.length > 0) { %>
@@ -48,6 +50,7 @@
                     <a href="./create"><button>Create Game</button></a>
                 </div>
             </div>
+            <%- include('./partials/footer.ejs') %>
         </div>
     </body>
 </html>

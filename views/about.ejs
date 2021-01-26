@@ -6,38 +6,40 @@
 
             <%- include('./partials/nav.ejs') %>
 
-            <div class="contentWindow">
-                <h2>What is Campaign Coordinator?</h2>
-                <p>Campaign Coordinator is a D&D companion application. It allows dungeon masters and players to be able to see and change information about the game in a synchronized location. Campaign Coordinator is currently a work in progress. Below is a list of planned features. </p>
-                <h3>Planned Features</h3>
-                <ul>
-                    <li><strike>Chat</strike></li>
+            <div class="mainWindow">
+                <div class="contentWindow">
+                    <h2>What is Campaign Coordinator?</h2>
+                    <p>Campaign Coordinator is a D&D companion application. It allows dungeon masters and players to be able to see and change information about the game in a synchronized location. Campaign Coordinator is currently a work in progress. Below is a list of planned features. </p>
+                    <h3>Planned Features</h3>
                     <ul>
-                        <li>Private Messages</li>
-                        <li><strike>Dice Rolling</strike></li>
+                        <li><strike>Chat</strike></li>
+                        <ul>
+                            <li>Private Messages</li>
+                            <li><strike>Dice Rolling</strike></li>
+                        </ul>
+                        <li><strike>Spectator Mode</strike></li>
+                        <li>Inventory Manager</li>
+                        <ul>
+                            <li>DM can add & remove items</li>
+                            <li>Players can view item details</li>
+                        </ul>
+                        <li>Character Creation</li>
+                        <ul>
+                            <li>5e D&D options</li>
+                            <li>Custom options</li>
+                        </ul>
                     </ul>
-                    <li><strike>Spectator Mode</strike></li>
-                    <li>Inventory Manager</li>
-                    <ul>
-                        <li>DM can add & remove items</li>
-                        <li>Players can view item details</li>
-                    </ul>
-                    <li>Character Creation</li>
-                    <ul>
-                        <li>5e D&D options</li>
-                        <li>Custom options</li>
-                    </ul>
-                </ul>
-            </div>
+                </div>
 
-            <div class="contentWindow">
-                <h2>Resource Attributions</h2>
-                <h3>Game Logos</h3>
-                <p>
-                    Game icons were created using LogoMakr.com
-                </p>
+                <div class="contentWindow">
+                    <h2>Resource Attributions</h2>
+                    <h3>Game Logos</h3>
+                    <p>
+                        Game icons were created using LogoMakr.com
+                    </p>
+                </div>
             </div>
-
+            <%- include('./partials/footer.ejs') %>
         </div>
     </body>
 </html>

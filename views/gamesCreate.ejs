@@ -3,18 +3,19 @@
     <body>
         <div class="contentView">
         <%- include('./partials/nav.ejs') %>
-            <div class="contentWindow" id="createGame">
-                <form>
-                    <h2>Create Game</h2>
-                    <input type="text" name="name" placeholder="name" required/>
-                    <div id="nameError" class="errorDiv"></div>
-                    <textarea placeholder="description" name="description"></textarea>
-                    <input type="password" name="password" placeholder="password" required/>
-                    <div id="passwordError" class="errorDiv"></div>
-                    <button>Create Game</button>
-                </form>
+            <div class="mainWindow">
+                <div class="contentWindow" id="createGame">
+                    <form>
+                        <h2>Create Game</h2>
+                        <input type="text" name="name" placeholder="name" required/>
+                        <div id="nameError" class="errorDiv"></div>
+                        <textarea placeholder="description" name="description"></textarea>
+                        <input type="password" name="password" placeholder="password" required/>
+                        <div id="passwordError" class="errorDiv"></div>
+                        <button>Create Game</button>
+                    </form>
+                </div>
             </div>
-
             <script>
                 const form = document.querySelector('form');
                 const nameError = document.querySelector('#nameError');
@@ -63,6 +64,7 @@
                     }
                 });
             </script>
+            <%- include('./partials/footer.ejs') %>
         </div>
     </body>
 </html>
