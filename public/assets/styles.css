@@ -50,7 +50,7 @@ textarea {
     color: var(--font2);
     font-size: 1em;
     width: 100%;
-    background-color: var(--window);
+    background-color: var(--innerWindow);
     padding: 0.5em;
     margin-left: auto;
     margin-right: auto;
@@ -60,10 +60,26 @@ textarea {
     -webkit-appearance: none;
     outline: none;
     transition: 0.2s;
+
 }
 
 button {
     margin-bottom: 0em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
+
+}
+
+input,
+textarea {
+    background: var(--window);
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(0, 0, 0, 0.1);
+    /* box-shadow:
+    -4px -4px 2px 0 rgba(0, 0, 0, 0.4) inset,
+    4px 4px 2px 0 rgba(255, 255, 255, 0.1) inset; */
 }
 
 textarea {
@@ -216,8 +232,11 @@ textarea {
 
 .gameDetail {
     text-align: center;
-    background-color: var(--window);
+    background-color: var(--innerWindow);
     border-radius: 0.5em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
 }
 
 .gameDetail p:nth-child(2n + 1) {
