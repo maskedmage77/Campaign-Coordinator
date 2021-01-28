@@ -11,8 +11,9 @@ It is a small file that exports the mongodb server connection.
 
 ### jwtSecret.js ###
 This file is excluded becuase it provides the secret for JWT cookies.
+Below is an example of what the file should look like, just replace the text inside the quote marks. 
 
 ```javascript
-const jwtSecret = 'This is the second version of this becuase I deleted a partition once.';
+const jwtSecret = 'Enter your jwtSecret Here the text does not matter';
 module.exports = jwtSecret;
 ```
