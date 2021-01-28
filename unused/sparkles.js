@@ -23,9 +23,7 @@
             sparkleDiv.style.boxShadow = "0px 0px 10px 3px orange, 0px 0px 3px 1px orange";
         }
 
-
         sparkleDiv.innerHTML = "";
-
         sparkleDiv.style.position = "absolute";
         sparkleDiv.style.top = Math.random() * 50 + 'px'
         sparkleDiv.style.left = Math.random() * 100 + 'vw';

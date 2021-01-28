@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 const authRoutes = require('./routes/authRoutes');
 const gamesRoutes = require('./routes/gamesRoutes');
+const charactersRoutes = require('./routes/charactersRoutes');
 const Post = require('./models/Post');
 const Game = require('./models/Game');
 const User = require('./models/User');
@@ -37,6 +38,7 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use('/', express.static('public'));
 app.use('/games', express.static('public'));
+app.use('/characters', express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(cookieParser());
@@ -60,10 +62,16 @@ app.get('/account', requireAuth, (req, res) => {
     res.render('account', {title: 'Account'});
 });
 
+app.get('/legal', (req, res) => {
+    res.render('legal', {title: 'Legal'});
+});
+
 app.get('/about', (req, res) => {
     res.render('about', {title: 'About'});
 });
 
 app.use(authRoutes);
+
+app.use('/characters', charactersRoutes);
 
 app.use('/games', gamesRoutes);

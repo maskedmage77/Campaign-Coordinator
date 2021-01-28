@@ -1,0 +1,109 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+
+        <div class="contentView">
+
+            <%- include('./partials/nav.ejs') %>
+
+            <div class="mainWindow">
+                <div class="contentWindow">
+                    <h2>Create Character</h2>
+
+                    <form id="createCharacterForm">
+                        <input type="text" placeholder="name" class="fullWidth"></input>
+
+
+
+                            <select name="class">
+                                <option value="" selected disabled>Select Class</option>
+                                <% if (data.classes.length > 0) { %>
+                                    <% data.classes.forEach(class_ => { %>
+                                        <option value="<%= class_.name %>"><%= class_.name %></option>
+                                    <% }); %>
+                                <% }; %>
+                            </select>
+
+                            <select name="race" id="raceMenu">
+                                <option value="" selected disabled>Select Race</option>
+                                <% if (data.races.length > 0) { %>
+                                    <% data.races.forEach(race => { %>
+                                        <option value="<%= race.name %>"><%= race.name %></option>
+                                    <% }); %>
+                                <% }; %>
+                            </select>
+
+                            <select name="subrace" id="subraceMenu" hidden>
+                                <option value="" selected disabled>Select Subrace</option>
+                                <% if (data.races.length > 0) { %>
+                                    <% data.races.forEach(race => { %>
+                                        <option value="<%= race.name %>"><%= race.name %></option>
+                                    <% }); %>
+                                <% }; %>
+                            </select>
+
+                            <script>
+                            var data = <%- JSON.stringify(data) %>;
+
+                            // function to find index
+                            function finderBoy(array, attr, value) {
+                                for (var i = 0; i < array.length; i += 1) {
+                                    if (array[i][attr] === value) {
+                                        return i;
+                                    }
+                                }
+                                return -1;
+                            }
+
+                            var raceMenu = document.getElementById("raceMenu");
+                            var subraceMenu = document.getElementById("subraceMenu");
+
+                            raceMenu.addEventListener("change", function() {
+                                var i = finderBoy(data.races, 'name', raceMenu.value);
+
+                                if (data.races[i].subraces) {
+                                    var firstElementChild = subraceMenu.firstElementChild;
+                                    subraceMenu.innerHTML = '';
+                                    subraceMenu.append(firstElementChild);
+
+                                    data.races[i].subraces.forEach(subrace => {
+                                        var option = document.createElement("option");
+                                        option.setAttribute("value", subrace.name);
+                                        option.innerHTML = subrace.name;
+                                        subraceMenu.append(option);
+                                    });
+
+                                    subraceMenu.removeAttribute("hidden");
+                                }
+                                else {
+                                    subraceMenu.setAttribute("hidden", "");
+                                    var firstElementChild = subraceMenu.firstElementChild;
+                                    subraceMenu.innerHTML = '';
+                                    subraceMenu.append(firstElementChild);
+                                }
+                            });
+                            </script>
+
+
+
+                        <input type="text" placeholder="age"></input>
+                        <input type="text" placeholder="height"></input>
+                        <input type="text" placeholder="weight"></input>
+                        <input type="text" placeholder="eyes"></input>
+                        <input type="text" placeholder="skin"></input>
+                        <input type="text" placeholder="hair"></input>
+                        <textarea rows="8" placeholder="appearance"></textarea>
+                        <textarea rows="8" placeholder="backstory"></textarea>
+                        <button class="fullWidth">Create Character</button>
+                    </form>
+
+
+
+                </div>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+        </div>
+
+    </body>
+</html>

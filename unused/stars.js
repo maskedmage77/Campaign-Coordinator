@@ -10,19 +10,6 @@
         sparkleDiv.style.height = size;
 
         var genTime = Math.random();
-        // if (genTime >= 0 && genTime < 0.5) {
-        //     sparkleDiv.style.background = "yellow";
-        //     sparkleDiv.style.boxShadow = "0px 0px 10px 3px yellow, 0px 0px 3px 1px yellow";
-        // }
-        // else if  (genTime >= 0.5 && genTime < 0.75) {
-        //     sparkleDiv.style.background = "tomato";
-        //     sparkleDiv.style.boxShadow = "0px 0px 10px 3px tomato, 0px 0px 3px 1px tomato";
-        // }
-        // else {
-        //     sparkleDiv.style.background = "orange";
-        //     sparkleDiv.style.boxShadow = "0px 0px 10px 3px orange, 0px 0px 3px 1px orange";
-        // }
-
 
         sparkleDiv.innerHTML = "";
         sparkleDiv.style.background = "white";

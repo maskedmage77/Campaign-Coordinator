@@ -45,7 +45,8 @@ a {
 
 input,
 button,
-textarea {
+textarea,
+select {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--font2);
     font-size: 1em;
@@ -60,7 +61,6 @@ textarea {
     -webkit-appearance: none;
     outline: none;
     transition: 0.2s;
-
 }
 
 button {
@@ -72,7 +72,8 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
     background: var(--window);
     box-shadow:
     4px 4px 4px 0 rgba(0, 0, 0, 0.4),
@@ -125,7 +126,8 @@ textarea {
     }
 
     input,
-    button {
+    button,
+    select {
         padding: 1em;
     }
 }
@@ -253,7 +255,7 @@ textarea {
 }
 .gameDetail input {
     width: calc(100% - 2em);
-    background-color: var(--innerWindow);
+    /* background-color: var(--innerWindow); */
 }
 
 @media screen and (max-width: 600px) {
@@ -306,4 +308,39 @@ textarea {
     .footerWindow {
         grid-template-columns: 1fr 2fr;
     }
+}
+
+/* Create Character Styles */
+
+#createCharacterForm {
+    grid-template-columns: 1fr 1fr;
+}
+
+#createCharacterForm label {
+    text-align: center;
+    margin-top: 0.5em;
+
+}
+
+#createCharacterForm textarea {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.fullWidth {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.fullWidthBox {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    column-gap: 1em;
+    border-radius: 0.5em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
+    padding: 0.5em;
 }
