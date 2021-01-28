@@ -97,6 +97,10 @@ textarea {
     display: none;
 }
 
+.centerText {
+    text-align: center;
+}
+
 .contentView {
     display: grid;
     grid-template-columns: 1fr 568px 1fr;
@@ -334,13 +338,41 @@ textarea {
 
 .fullWidthBox {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr;
     grid-column-start: 1;
     grid-column-end: 3;
     column-gap: 1em;
+    row-gap: 1em;
     border-radius: 0.5em;
     box-shadow:
     4px 4px 4px 0 rgba(0, 0, 0, 0.4),
     -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
-    padding: 0.5em;
+    padding: 1em;
+}
+
+.soloButton {
+    margin-bottom: 0.5em;
+}
+
+#raceTraitsP,
+#subraceTraitsP {
+    margin: 0em;
+}
+
+#raceTraitsP p:first-child,
+#subraceTraitsP p:first-child {
+    margin-top: 0em;
+}
+
+#raceTraitsP p:last-child,
+#subraceTraitsP p:first-child {
+    margin-bottom: 0em;
+}
+
+.traitName {
+    font-weight: bold;
+}
+
+.traitDescription {
+    color: var(--font2);
 }

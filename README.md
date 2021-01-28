@@ -10,4 +10,10 @@ Contains required node packages. A list of required packages can be found in pac
 It is a small file that exports the mongodb server connection.
 
 ### jwtSecret.js ###
-This file is excluded becuase it provides the secret for JWT cookies.
+This file is excluded because it provides the secret for JWT cookies.
+Below is an example of what the file should look like, just replace the text inside the quote marks.
+
+```javascript
+const jwtSecret = 'Enter your jwtSecret here, the text does not matter';
+module.exports = jwtSecret;
+```

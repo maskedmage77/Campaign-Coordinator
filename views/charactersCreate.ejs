@@ -8,23 +8,13 @@
 
             <div class="mainWindow">
                 <div class="contentWindow">
-                    <h2>Create Character</h2>
+                    <h2 class="centerText">Create Character</h2>
 
-                    <form id="createCharacterForm">
+                    <form id="createCharacterForm" autocomplete="off">
                         <input type="text" placeholder="name" class="fullWidth"></input>
 
-
-
-                            <select name="class">
-                                <option value="" selected disabled>Select Class</option>
-                                <% if (data.classes.length > 0) { %>
-                                    <% data.classes.forEach(class_ => { %>
-                                        <option value="<%= class_.name %>"><%= class_.name %></option>
-                                    <% }); %>
-                                <% }; %>
-                            </select>
-
-                            <select name="race" id="raceMenu">
+                        <div class="fullWidthBox">
+                            <select name="race" id="raceMenu"  class="fullWidth">
                                 <option value="" selected disabled>Select Race</option>
                                 <% if (data.races.length > 0) { %>
                                     <% data.races.forEach(race => { %>
@@ -33,7 +23,10 @@
                                 <% }; %>
                             </select>
 
-                            <select name="subrace" id="subraceMenu" hidden>
+                            <p id="raceTraitsP" class ="fullWidth" hidden></p>
+
+
+                            <select name="subrace" id="subraceMenu" class="fullWidth" hidden>
                                 <option value="" selected disabled>Select Subrace</option>
                                 <% if (data.races.length > 0) { %>
                                     <% data.races.forEach(race => { %>
@@ -42,7 +35,10 @@
                                 <% }; %>
                             </select>
 
-                            <script>
+                            <p id="subraceTraitsP" class ="fullWidth" hidden></p>
+                        </div>
+
+                        <script>
                             var data = <%- JSON.stringify(data) %>;
 
                             // function to find index
@@ -57,9 +53,40 @@
 
                             var raceMenu = document.getElementById("raceMenu");
                             var subraceMenu = document.getElementById("subraceMenu");
+                            var raceTraitsP = document.getElementById("raceTraitsP");
+                            var subraceTraitsP = document.getElementById("subraceTraitsP");
+
+                            subraceMenu.addEventListener("change", function() {
+                                var i = finderBoy(data.races, 'name', raceMenu.value);
+                                var x = finderBoy(data.races[i].subraces, 'name', subraceMenu.value);
+
+                                if (data.races[i].subraces[x].traits) {
+                                    subraceTraitsP.removeAttribute("hidden");
+                                    data.races[i].subraces[x].traits.forEach(trait => {
+                                        var newP = document.createElement('p');
+                                        newP.innerHTML = '<span class="traitName">' + trait.name + '.</span><span class="traitDescription"> ' + trait.description + '</span>';
+                                        subraceTraitsP.append(newP);
+                                    });
+                                }
+                            });
 
                             raceMenu.addEventListener("change", function() {
                                 var i = finderBoy(data.races, 'name', raceMenu.value);
+
+                                subraceMenu.selectedIndex = 0;
+                                subraceTraitsP.innerHTML = '';
+                                subraceTraitsP.setAttribute("hidden", "");
+                                raceTraitsP.innerHTML = '';
+                                raceTraitsP.setAttribute("hidden", "");
+
+                                if (data.races[i].traits) {
+                                    raceTraitsP.removeAttribute("hidden");
+                                    data.races[i].traits.forEach(trait => {
+                                        var newP = document.createElement('p');
+                                        newP.innerHTML = '<span class="traitName">' + trait.name + '.</span><span class="traitDescription"> ' + trait.description + '</span>';
+                                        raceTraitsP.append(newP)
+                                    });
+                                }
 
                                 if (data.races[i].subraces) {
                                     var firstElementChild = subraceMenu.firstElementChild;
@@ -82,9 +109,18 @@
                                     subraceMenu.append(firstElementChild);
                                 }
                             });
-                            </script>
+                        </script>
 
-
+                        <div class="fullWidthBox">
+                            <select name="class" class="fullWidth">
+                                <option value="" selected disabled>Select Class</option>
+                                <% if (data.classes.length > 0) { %>
+                                    <% data.classes.forEach(class_ => { %>
+                                        <option value="<%= class_.name %>"><%= class_.name %></option>
+                                    <% }); %>
+                                <% }; %>
+                            </select>
+                        </div>
 
                         <input type="text" placeholder="age"></input>
                         <input type="text" placeholder="height"></input>
