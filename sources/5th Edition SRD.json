@@ -150,7 +150,7 @@
                         },
                         {
                             "name":"Tinker",
-                            "description":"You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: \nClockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. \nFire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\nMusic Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+                            "description":"You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: \n\n**Clockwork Toy.** This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. \n\n**Fire Starter.** The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n\n**Music Box.** When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
                         }
                     ]
                 }
@@ -312,18 +312,177 @@
     ],
 
     "classes": [
-        {"name":"Barbarian"},
-        {"name":"Bard"},
-        {"name":"Cleric"},
-        {"name":"Druid"},
-        {"name":"Fighter"},
-        {"name":"Monk"},
-        {"name":"Paladin"},
-        {"name":"Ranger"},
-        {"name":"Rogue"},
-        {"name":"Sorcerer"},
-        {"name":"Warlock"},
-        {"name":"Wizard"}
+        {
+            "name":"Barbarian",
+            "hitDice": "12",
+            "armorProficiencies":[
+                "light armor",
+                "medium armor",
+                "shields"
+            ],
+            "weaponProficiencies":[
+                "simple weapons",
+                "martial weapons"
+            ],
+            "savingThrows":[
+                "strength",
+                "constitution"
+            ],
+            "skillSelect":{
+                "quantity":"2",
+                "skills":[
+                    "animal handling",
+                    "athletics",
+                    "intimidation",
+                    "nature",
+                    "perception",
+                    "survival"
+                ]
+            },
+            "equipmentSelect":[
+                {
+                    "options":[
+                        {
+                            "id":"14"
+                        },
+                        {
+                            "id":"15"
+                        },
+                        {
+                            "id":"16"
+                        },
+                        {
+                            "id":"17"
+                        },
+                        {
+                            "id":"19"
+                        },
+                        {
+                            "id":"20"
+                        },
+                        {
+                            "id":"21"
+                        },
+                        {
+                            "id":"22"
+                        },
+                        {
+                            "id":"23"
+                        },
+                        {
+                            "id":"24"
+                        },
+                        {
+                            "id":"25"
+                        },
+                        {
+                            "id":"26"
+                        },
+                        {
+                            "id":"27"
+                        },
+                        {
+                            "id":"28"
+                        },
+                        {
+                            "id":"29"
+                        },
+                        {
+                            "id":"30"
+                        },
+                        {
+                            "id":"31"
+                        }
+                    ]
+                },
+                {
+                    "options":[
+                        {
+                            "id":"3",
+                            "quantity":"2"
+                        },
+                        {
+                            "id":"1"
+                        },
+                        {
+                            "id":"2"
+                        },
+                        {
+                            "id":"3"
+                        },
+                        {
+                            "id":"4"
+                        },
+                        {
+                            "id":"5"
+                        },
+                        {
+                            "id":"6"
+                        },
+                        {
+                            "id":"7"
+                        },
+                        {
+                            "id":"8"
+                        },
+                        {
+                            "id":"9"
+                        },
+                        {
+                            "id":"10"
+                        },
+                        {
+                            "id":"11"
+                        },
+                        {
+                            "id":"12"
+                        },
+                        {
+                            "id":"13"
+                        }
+                    ]
+                }
+            ],
+            "equipment":[
+                {
+                    "id":"4",
+                    "quantity":"4"
+                }
+            ]
+        },
+        {
+            "name":"Bard"
+        },
+        {
+            "name":"Cleric"
+        },
+        {
+            "name":"Druid"
+        },
+        {
+            "name":"Fighter"
+        },
+        {
+            "name":"Monk"
+        },
+        {
+            "name":"Paladin"
+        },
+        {
+            "name":"Ranger"
+        },
+        {
+            "name":"Rogue"
+        },
+        {
+            "name":"Sorcerer"
+        },
+        {
+            "name":"Warlock"
+        },
+        {
+            "name":"Wizard"
+        }
     ]
 
 }

@@ -1,0 +1,738 @@
+{
+    "items":[
+        {
+            "id":"0",
+            "name":"club",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "light"
+            ]
+        },
+        {
+            "id":"1",
+            "name":"dagger",
+            "weight":"1",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "finesse",
+                "light",
+                "thrown (20/60)"
+            ]
+        },
+        {
+            "id":"2",
+            "name":"greatclub",
+            "weight":"10",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "two-handed"
+            ]
+        },
+        {
+            "id":"3",
+            "name":"handaxe",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "light",
+                "thrown (20/60)"
+            ]
+        },
+        {
+            "id":"4",
+            "name":"javelin",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "light",
+                "thrown (30/120)"
+            ]
+        },
+        {
+            "id":"5",
+            "name":"light hammer",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "light",
+                "thrown (20/60)"
+            ]
+        },
+        {
+            "id":"6",
+            "name":"mace",
+            "weight":"4",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"bludgeoning"
+                }
+            ]
+        },
+        {
+            "id":"7",
+            "name":"quarterstaff",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "versatile (1d8)"
+            ]
+        },
+        {
+            "id":"8",
+            "name":"sickle",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "light"
+            ]
+        },
+        {
+            "id":"9",
+            "name":"spear",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"simple weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "thrown (20/60)",
+                "versatile (1d8)"
+            ]
+        },
+        {
+            "id":"10",
+            "name":"light crossbow",
+            "weight":"5",
+            "type":"weapon",
+            "subType":"simple ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (range 80/320)",
+                "loading",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"11",
+            "name":"dart",
+            "weight":"0.25",
+            "type":"weapon",
+            "subType":"simple ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "finesse",
+                "thrown (20/60)"
+            ]
+        },
+        {
+            "id":"12",
+            "name":"shortbow",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"simple ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (range 80/320)",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"13",
+            "name":"sling",
+            "weight":"0.1",
+            "type":"weapon",
+            "subType":"simple ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "ammunition (range 30/120)"
+            ]
+        },
+        {
+            "id":"14",
+            "name":"battleaxe",
+            "weight":"4",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "versatile (1d10)"
+            ]
+        },
+        {
+            "id":"15",
+            "name":"flail",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"bludgeoning"
+                }
+            ]
+        },
+        {
+            "id":"16",
+            "name":"glaive",
+            "weight":"6",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d10",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "reach",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"17",
+            "name":"greataxe",
+            "weight":"4",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d12",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"18",
+            "name":"greatsword",
+            "weight":"6",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"2d6",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"19",
+            "name":"halberd",
+            "weight":"6",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d10",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "reach",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"20",
+            "name":"lance",
+            "weight":"6",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d12",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "reach",
+                "special"
+            ],
+            "special":"You have disadvantage when you use a lance to Attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted."
+        },
+        {
+            "id":"21",
+            "name":"longsword",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "versatile (1d10)"
+            ]
+        },
+        {
+            "id":"22",
+            "name":"maul",
+            "weight":"10",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"2d6",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"23",
+            "name":"morningstar",
+            "weight":"4",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ]
+        },
+        {
+            "id":"24",
+            "name":"pike",
+            "weight":"18",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d10",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "heavy",
+                "reach",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"25",
+            "name":"rapier",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "finesse"
+            ]
+        },
+        {
+            "id":"26",
+            "name":"scimitar",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "finesse",
+                "light"
+            ]
+        },
+        {
+            "id":"27",
+            "name":"shortsword",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "finesse"
+            ]
+        },
+        {
+            "id":"28",
+            "name":"trident",
+            "weight":"4",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "thrown (20/60)",
+                "versatile (1d8)"
+            ]
+        },
+        {
+            "id":"29",
+            "name":"war pick",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ]
+        },
+        {
+            "id":"30",
+            "name":"warhammer",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"bludgeoning"
+                }
+            ],
+            "properties":[
+                "versatile (1d10)"
+            ]
+        },
+        {
+            "id":"31",
+            "name":"whip",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"martial weapon",
+            "damage":[
+                {
+                    "amount":"1d4",
+                    "type":"slashing"
+                }
+            ],
+            "properties":[
+                "finesse",
+                "reach"
+            ]
+        },
+        {
+            "id":"32",
+            "name":"blowgun",
+            "weight":"1",
+            "type":"weapon",
+            "subType":"martial ranged weapon",
+            "damage":[
+                {
+                    "amount":"1",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (25/100)",
+                "loading"
+            ]
+        },
+        {
+            "id":"33",
+            "name":"hand crossbow",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"martial ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d6",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (30/120)",
+                "light",
+                "loading"
+            ]
+        },
+        {
+            "id":"34",
+            "name":"heavy crossbow",
+            "weight":"18",
+            "type":"weapon",
+            "subType":"martial ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d10",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (100/400)",
+                "heavy",
+                "loading",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"35",
+            "name":"longbow",
+            "weight":"2",
+            "type":"weapon",
+            "subType":"martial ranged weapon",
+            "damage":[
+                {
+                    "amount":"1d8",
+                    "type":"piercing"
+                }
+            ],
+            "properties":[
+                "ammunition (150/600)",
+                "heavy",
+                "two-handed"
+            ]
+        },
+        {
+            "id":"36",
+            "name":"net",
+            "weight":"3",
+            "type":"weapon",
+            "subType":"martial ranged weapon",
+            "properties":[
+                "thrown (5/15)",
+                "special"
+            ],
+            "special":"A Large or smaller creature hit by a net is Restrained until it is freed. A net has no Effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, Ending the Effect and destroying the net. When you use an action, Bonus Action, or Reaction to Attack with a net, you can make only one Attack regardless of the number of attacks you can normally make."
+        },
+        {
+            "id":"37",
+            "name":"padded armor",
+            "description":"Padded armor consists of quilted layers of cloth and batting.",
+            "weight":"8",
+            "type":"armor",
+            "subType":"light armor",
+            "armor class":"11 + dexterity modifier",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"38",
+            "name":"leather armor",
+            "description":"The Breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+            "weight":"10",
+            "type":"armor",
+            "subType":"light armor",
+            "armor class":"11 + dexterity modifier"
+        },
+        {
+            "id":"39",
+            "name":"studded leather armor",
+            "description":"Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
+            "weight":"13",
+            "type":"armor",
+            "subType":"light armor",
+            "armor class":"12 + dexterity modifier"
+        },
+        {
+            "id":"40",
+            "name":"hide armor",
+            "description":"This crude armor consists of thick furs and pelts. It is commonly worn by Barbarian tribes, evil Humanoids, and other folk who lack access to the tools and materials needed to create better armor.",
+            "weight":"12",
+            "type":"armor",
+            "subType":"medium armor",
+            "armor class":"12 + dexterity modifier (max 2)"
+        },
+        {
+            "id":"41",
+            "name":"chain shirt",
+            "description":"Made of interlocking metal rings, a Chain Shirt is worn between layers of clothing or leather. This armor offers modest Protection to the wearer’s upper body and allows the sound of the rings rubbing against one another to be muffled by outer layers.",
+            "weight":"20",
+            "type":"armor",
+            "subType":"medium armor",
+            "armor class":"13 + dexterity modifier (max 2)"
+        },
+        {
+            "id":"42",
+            "name":"scale mail",
+            "description":"This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much like the scales of a fish. The suit includes gauntlets.",
+            "weight":"45",
+            "type":"armor",
+            "subType":"medium armor",
+            "armor class":"14 + dexterity modifier (max 2)",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"43",
+            "name":"breastplate",
+            "description":"This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good Protection for the wearer’s vital organs while leaving the wearer relatively unencumbered.",
+            "weight":"20",
+            "type":"armor",
+            "subType":"medium armor",
+            "armor class":"14 + dexterity modifier (max 2)"
+        },
+        {
+            "id":"44",
+            "name":"half plate",
+            "description":"Half Plate consists of shaped metal plates that cover most of the wearer’s body. It does not include leg Protection beyond simple greaves that are attached with leather straps.",
+            "weight":"40",
+            "type":"armor",
+            "subType":"medium armor",
+            "armor class":"15 + dexterity modifier (max 2)",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"45",
+            "name":"ring mail",
+            "description":"This armor is Leather Armor with heavy rings sewn into it. The rings help reinforce the armor against blows from Swords and axes. Ring Mail is inferior to Chain Mail, and it's usually worn only by those who can’t afford better armor.",
+            "weight":"40",
+            "type":"armor",
+            "subType":"heavy armor",
+            "armor class":"14",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"46",
+            "name":"chain mail",
+            "description":"Made of interlocking metal rings, Chain Mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.",
+            "weight":"55",
+            "type":"armor",
+            "subType":"heavy armor",
+            "armor class":"16",
+            "strength":"13",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"47",
+            "name":"splint armor",
+            "description":"This armor is made of narrow vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible Chain Mail protects the joints.",
+            "weight":"60",
+            "type":"armor",
+            "subType":"heavy armor",
+            "armor class":"17",
+            "strength":"15",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"48",
+            "name":"plate armor",
+            "description":"Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.",
+            "weight":"65",
+            "type":"armor",
+            "subType":"heavy armor",
+            "armor class":"18",
+            "strength":"15",
+            "stealth":"disadvantage"
+        },
+        {
+            "id":"49",
+            "name":"shield",
+            "description":"A Shield is made from wood or metal and is carried in one hand. Wielding a Shield increases your Armor Class by 2. You can benefit from only one Shield at a time.",
+            "weight":"6",
+            "type":"off-hand",
+            "armor class":"2"
+        }
+    ]
+}

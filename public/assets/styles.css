@@ -336,6 +336,14 @@ textarea {
     grid-column-end: 3;
 }
 
+.fullWidth select {
+    margin-bottom: 1em;
+}
+
+.fullWidth select:last-child {
+    margin-bottom: 0em;
+}
+
 .fullWidthBox {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -348,6 +356,14 @@ textarea {
     4px 4px 4px 0 rgba(0, 0, 0, 0.4),
     -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
     padding: 1em;
+}
+
+.fullWidthBox h3 {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 1.25em;
+    margin: 0.4em;
 }
 
 .soloButton {
@@ -375,4 +391,12 @@ textarea {
 
 .traitDescription {
     color: var(--font2);
+}
+
+.traitDescription strong {
+    color: var(--font1);
+}
+
+.traitDescription p:first-child {
+    display: inline;
 }
