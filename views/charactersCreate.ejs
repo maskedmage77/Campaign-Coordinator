@@ -12,275 +12,99 @@
                     <h2 class="centerText">Create Character</h2>
 
                     <form id="createCharacterForm" autocomplete="off">
-                        <input type="text" placeholder="name" class="fullWidth"></input>
+                        <input type="text" placeholder="name" name="name" class="fullWidth" required></input>
 
                         <div class="fullWidthBox">
                             <h3>Race</h3>
-                            <select name="race" id="raceMenu"  class="fullWidth">
-                                <option value="" selected disabled>Select Race</option>
-                                <% if (data.races.length > 0) { %>
-                                    <% data.races.forEach(race => { %>
-                                        <option value="<%= race.name %>"><%= race.name %></option>
-                                    <% }); %>
-                                <% }; %>
+                            <select name="race" id="raceMenu"  class="fullWidth" required>
+                                <option value="" selected disabled >Select Race</option>
                             </select>
                             <p id="raceTraitsP" class ="fullWidth" hidden></p>
                             <select name="subrace" id="subraceMenu" class="fullWidth" hidden>
                                 <option value="" selected disabled>Select Subrace</option>
-                                <% if (data.races.length > 0) { %>
-                                    <% data.races.forEach(race => { %>
-                                        <option value="<%= race.name %>"><%= race.name %></option>
-                                    <% }); %>
-                                <% }; %>
                             </select>
                             <p id="subraceTraitsP" class ="fullWidth" hidden></p>
                         </div>
 
-                        <script>
-                            var converter = new showdown.Converter();
-                            var data = <%- JSON.stringify(data) %>;
-                            var distanceUnit = 'feet';
-                            var items = {};
-                            fetch("./items.json")
-                            .then(response => {
-                                return response.json();
-                            })
-                            .then(data => {
-                                items = data.items;
-                                console.log(items);
-                            });
-
-                            // function to find index
-                            function finderBoy(array, attr, value) {
-                                for (var i = 0; i < array.length; i += 1) {
-                                    if (array[i][attr] === value) {
-                                        return i;
-                                    }
-                                }
-                                return -1;
-                            }
-                            // function to capitalize first letter of string passed in
-                            function capitalizeFirstLetter(string) {
-                                  return string.charAt(0).toUpperCase() + string.slice(1);
-                            }
-
-                            var raceMenu = document.getElementById("raceMenu");
-                            var subraceMenu = document.getElementById("subraceMenu");
-                            var raceTraitsP = document.getElementById("raceTraitsP");
-                            var subraceTraitsP = document.getElementById("subraceTraitsP");
-
-                            subraceMenu.addEventListener("change", function() {
-                                var i = finderBoy(data.races, 'name', raceMenu.value);
-                                var x = finderBoy(data.races[i].subraces, 'name', subraceMenu.value);
-
-                                if (data.races[i].subraces[x].abilityScoreIncrease) {
-                                    subraceTraitsP.removeAttribute("hidden");
-                                    for (var key of Object.keys(data.races[i].subraces[x].abilityScoreIncrease)) {
-
-                                        if (key === "choice") {
-                                            var abilScoreP = document.createElement('p');
-                                            abilScoreP.innerHTML = '<span class="traitName">Increase your choice of ability scores by: </span><span class="traitDescription">' + data.races[i].subraces[x].abilityScoreIncrease[key] + '</span>';
-                                            subraceTraitsP.append(abilScoreP);
-                                        } else {
-                                            var abilScoreP = document.createElement('p');
-                                            abilScoreP.innerHTML = '<span class="traitName">'+capitalizeFirstLetter(key)+' increases by: </span><span class="traitDescription">' + data.races[i].subraces[x].abilityScoreIncrease[key] + '</span>';
-                                            subraceTraitsP.append(abilScoreP);
-                                        }
-                                    };
-                                }
-
-                                if (data.races[i].subraces[x].traits) {
-                                    subraceTraitsP.removeAttribute("hidden");
-                                    data.races[i].subraces[x].traits.forEach(trait => {
-                                        var newP = document.createElement('p');
-                                        newP.innerHTML = '<span class="traitName">' + trait.name + '.</span><span class="traitDescription"> ' + converter.makeHtml(trait.description) + '</span>';
-                                        subraceTraitsP.append(newP);
-                                    });
-                                }
-                                if (data.races[i].subraces[x].languages) {
-                                    var message = '<span class="traitName">Languages: </span><span class="traitDescription">';
-                                    subraceTraitsP.removeAttribute("hidden");
-                                    var kk = document.createElement('p');
-                                    data.races[i].subraces[x].languages.forEach((language, i) => {
-                                        if (i !== 0) {
-                                            message = message + ',';
-                                        }
-                                        if (language === "choice") {
-                                            message = message + ' <i>Player Choice</i>';
-                                            kk.innerHTML = message;
-                                        } else {
-                                            message = message + ' ' + capitalizeFirstLetter(language);
-                                            kk.innerHTML = message;
-                                        }
-                                    });
-                                    subraceTraitsP.append(kk);
-                                }
-                            });
-
-                            raceMenu.addEventListener("change", function() {
-                                var i = finderBoy(data.races, 'name', raceMenu.value);
-
-                                subraceMenu.selectedIndex = 0;
-                                subraceTraitsP.innerHTML = '';
-                                subraceTraitsP.setAttribute("hidden", "");
-                                raceTraitsP.innerHTML = '';
-                                raceTraitsP.setAttribute("hidden", "");
-
-                                if (data.races[i].size) {
-                                    raceTraitsP.removeAttribute("hidden");
-                                    var f = document.createElement('p');
-                                    f.innerHTML = '<span class="traitName">Size: </span><span class="traitDescription">' + capitalizeFirstLetter(data.races[i].size) + '</span>';
-                                    raceTraitsP.append(f);
-                                }
-
-                                if (data.races[i].speed) {
-                                    raceTraitsP.removeAttribute("hidden");
-                                    var f = document.createElement('p');
-                                    f.innerHTML = '<span class="traitName">Speed: </span><span class="traitDescription">' + data.races[i].speed +' '+ distanceUnit + '</span>';
-                                    raceTraitsP.append(f);
-                                }
-
-                                if (data.races[i].abilityScoreIncrease) {
-                                    raceTraitsP.removeAttribute("hidden");
-                                    for (var key of Object.keys(data.races[i].abilityScoreIncrease)) {
-                                        if (key === "choice") {
-                                            var abilScoreP = document.createElement('p');
-                                            abilScoreP.innerHTML = '<span class="traitName">Increase your choice of ability scores by: </span><span class="traitDescription">' + data.races[i].abilityScoreIncrease[key] + '</span>';
-                                            raceTraitsP.append(abilScoreP);
-                                        } else {
-                                            var abilScoreP = document.createElement('p');
-                                            abilScoreP.innerHTML = '<span class="traitName">'+capitalizeFirstLetter(key)+' increases by: </span><span class="traitDescription">' + data.races[i].abilityScoreIncrease[key] + '</span>';
-                                            raceTraitsP.append(abilScoreP);
-                                        }
-
-                                    };
-                                }
-
-                                if (data.races[i].traits) {
-                                    raceTraitsP.removeAttribute("hidden");
-                                    data.races[i].traits.forEach(trait => {
-                                        var newP = document.createElement('p');
-                                        newP.innerHTML = '<span class="traitName">' + trait.name + '.</span><span class="traitDescription"> ' + trait.description + '</span>';
-                                        raceTraitsP.append(newP)
-                                    });
-                                }
-
-                                if (data.races[i].languages) {
-                                    var message = '<span class="traitName">Languages: </span><span class="traitDescription">';
-                                    raceTraitsP.removeAttribute("hidden");
-                                    var kk = document.createElement('p');
-                                    data.races[i].languages.forEach((language, i) => {
-                                        if (i !== 0) {
-                                            message = message + ',';
-                                        }
-
-                                        if (language === "choice") {
-                                            message = message + ' <i>Player Choice</i>';
-                                            kk.innerHTML = message;
-                                        } else {
-                                            message = message + ' ' + capitalizeFirstLetter(language);
-                                            kk.innerHTML = message;
-                                        }
-                                    });
-                                    raceTraitsP.append(kk);
-                                }
-
-                                if (data.races[i].subraces) {
-                                    var firstElementChild = subraceMenu.firstElementChild;
-                                    subraceMenu.innerHTML = '';
-                                    subraceMenu.append(firstElementChild);
-
-                                    data.races[i].subraces.forEach(subrace => {
-                                        var option = document.createElement("option");
-                                        option.setAttribute("value", subrace.name);
-                                        option.innerHTML = subrace.name;
-                                        subraceMenu.append(option);
-                                    });
-
-                                    subraceMenu.removeAttribute("hidden");
-                                }
-                                else {
-                                    subraceMenu.setAttribute("hidden", "");
-                                    var firstElementChild = subraceMenu.firstElementChild;
-                                    subraceMenu.innerHTML = '';
-                                    subraceMenu.append(firstElementChild);
-                                }
-                            });
-                        </script>
 
                         <div class="fullWidthBox">
                             <h3>Class</h3>
-                            <select name="class" id="classMenu" class="fullWidth">
+                            <select name="class" id="classMenu" class="fullWidth" required>
                                 <option value="" selected disabled>Select Class</option>
-                                <% if (data.classes.length > 0) { %>
-                                    <% data.classes.forEach(class_ => { %>
-                                        <option value="<%= class_.name %>"><%= class_.name %></option>
-                                    <% }); %>
-                                <% }; %>
                             </select>
-                            <div id="classInfo" class="fullWidth" hidden></div>
+                        <div id="classInfo" class="fullWidth" hidden></div>
                         </div>
 
-                        <script>
-                            var classInfo = document.getElementById('classInfo');
-                            var classMenu = document.getElementById('classMenu');
 
 
-                            classMenu.addEventListener("change", function() {
-                                var i = finderBoy(data.classes, 'name', classMenu.value);
-                                classInfo.setAttribute("hidden", "");
-                                classInfo.innerHTML = '';
+                        <div class="fullWidthBox">
+                            <h3>Ability Scores</h3>
+                            <div class="abilityScoreContainer">
+                                <div class="abilityScoreItem">
+                                    <p>Strength</p>
+                                    <input type="number" value="10" name="strength" readonly></input>
+                                    <p id="strengthBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                                <div class="abilityScoreItem">
+                                    <p>Dexterity</p>
+                                    <input type="number" value="10" name="dexterity" readonly></input>
+                                    <p id="dexterityBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                                <div class="abilityScoreItem">
+                                    <p>Constitution</p>
+                                    <input type="number" value="10" name="constitution" readonly></input>
+                                    <p id="constitutionBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                                <div class="abilityScoreItem">
+                                    <p>Wisdom</p>
+                                    <input type="number" value="10" name="wisdom" readonly></input>
+                                    <p id="wisdomBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                                <div class="abilityScoreItem">
+                                    <p>Intelligence</p>
+                                    <input type="number" value="10" name="intelligence" readonly></input>
+                                    <p id="intelligenceBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                                <div class="abilityScoreItem">
+                                    <p>Charisma</p>
+                                    <input type="number" value="10" name="charisma" readonly></input>
+                                    <p id="charismaBonus" class="abilityBonus"></p>
+                                    <br>
+                                    <img src="./images/arrowUpHollow.png">
+                                    <img src="./images/arrowDownHollow.png">
+                                </div>
+                            </div>
+                        </div>
 
-                                // run if equipment to select exists
-                                if (data.classes[i].equipmentSelect) {
-                                    console.log(data.classes[i].name);
 
-                                    //runs for each question
-                                    data.classes[i].equipmentSelect.forEach((option, y) => {
-                                        var itemSelectMenu = document.createElement('select');
-                                        itemSelectMenu.setAttribute("value", 'equipmentSelect-' + y);
-                                        var newDefaultOption = document.createElement('option');
-                                        newDefaultOption.innerHTML = "Select Item";
-                                        newDefaultOption.setAttribute("value","");
-                                        newDefaultOption.setAttribute("disabled","");
-                                        newDefaultOption.setAttribute("selected","");
-                                        itemSelectMenu.append(newDefaultOption);
-                                        //runs for each option to the question
-                                        option.options.forEach((item, x) => {
-                                            var newOption = document.createElement('option');
-                                            if (item.quantity > 1) {
-                                                newOption.innerHTML = "(" + item.quantity + ") " + capitalizeFirstLetter(items[item.id].name);
-                                                newOption.setAttribute("value", x);
-                                                itemSelectMenu.append(newOption);
-                                            }
-                                            else {
-                                                newOption.innerHTML = capitalizeFirstLetter(items[item.id].name);
-                                                newOption.setAttribute("value", x);
-                                                itemSelectMenu.append(newOption);
-                                            }
 
-                                        });
-                                        classInfo.append(itemSelectMenu);
-                                    });
-                                    classInfo.removeAttribute("hidden");
-                                }
-
-                            });
-
-                        </script>
-
-                        <input type="text" placeholder="age"></input>
-                        <input type="text" placeholder="height"></input>
-                        <input type="text" placeholder="weight"></input>
-                        <input type="text" placeholder="eyes"></input>
-                        <input type="text" placeholder="skin"></input>
-                        <input type="text" placeholder="hair"></input>
-                        <textarea rows="8" placeholder="appearance"></textarea>
-                        <textarea rows="8" placeholder="backstory"></textarea>
+                        <input type="text" placeholder="age" name="age"></input>
+                        <input type="text" placeholder="height" name="height"></input>
+                        <input type="text" placeholder="weight" name="weight"></input>
+                        <input type="text" placeholder="eyes" name="eyes"></input>
+                        <input type="text" placeholder="skin" name="skin"></input>
+                        <input type="text" placeholder="hair" name="hair"></input>
+                        <textarea rows="8" placeholder="appearance" name="appearance"></textarea>
+                        <textarea rows="8" placeholder="backstory" name="backstory"></textarea>
                         <button class="fullWidth">Create Character</button>
                     </form>
 
-
+                <script src="/characterCreate.js"></script>
 
                 </div>
             </div>

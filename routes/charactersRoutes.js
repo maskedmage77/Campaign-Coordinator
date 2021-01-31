@@ -34,11 +34,7 @@ router.get('/', requireAuth, (req, res) => {
 });
 
 router.get('/create', requireAuth, (req, res) => {
-    var rawdata = fs.readFileSync('sources/5th Edition SRD.json');
-    var data = JSON.parse(rawdata);
-    console.log(data.races[0].abilityScoreIncrease);
-
-    res.render('charactersCreate', {title: 'Create Character', data: data});
+    res.render('charactersCreate', {title: 'Create Character'});
 });
 
 
