@@ -18,10 +18,10 @@ function capitalizeFirstLetter(string) {
 }
 
 // function to update ability score bonuses
-function abilityScoreBonusUpdater(bonuses,subBonus) {
+function abilityScoreBonusUpdater(bonuses,subBonus,abilitySelect) {
     var abilitiesBonus = ['strengthBonus','dexterityBonus','constitutionBonus','wisdomBonus','intelligenceBonus','charismaBonus'];
-            // var abilities = ['strength','dexterity','constitution','wisdom','intelligence','charisma'];
     var strengthBonus = 0, dexterityBonus = 0, constitutionBonus = 0, wisdomBonus = 0, intelligenceBonus = 0, charismaBonus = 0;
+
     // wipe clean
     abilitiesBonus.forEach((ability, i) => {
         document.getElementById(ability).innerHTML = '';
@@ -29,25 +29,47 @@ function abilityScoreBonusUpdater(bonuses,subBonus) {
 
     // race bonuses
     if (bonuses.strength) {
-        strengthBonus = bonuses.strength;
+        strengthBonus = parseInt(bonuses.strength);
     }
     if (bonuses.dexterity) {
-        dexterityBonus = bonuses.dexterity;
+        dexterityBonus = parseInt(bonuses.dexterity);
     }
     if (bonuses.constitution) {
-        constitutionBonus = bonuses.constitution;
+        constitutionBonus = parseInt(bonuses.constitution);
     }
     if (bonuses.wisdom) {
-        wisdomBonus = bonuses.wisdom;
+        wisdomBonus = parseInt(bonuses.wisdom);
     }
     if (bonuses.intelligence) {
-        intelligenceBonus = bonuses.intelligence;
+        intelligenceBonus = parseInt(bonuses.intelligence);
     }
     if (bonuses.charisma) {
-        charismaBonus = bonuses.charisma;
+        charismaBonus = parseInt(bonuses.charisma);
     }
 
-    //subrace bonus
+    // race choice bonus
+    abilitySelect.forEach((choice, i) => {
+        if (choice === 'strength') {
+            strengthBonus += 1;
+        }
+        if (choice === 'dexterity') {
+            dexterityBonus += 1;
+        }
+        if (choice === 'constitution') {
+            constitutionBonus += 1;
+        }
+        if (choice === 'wisdom') {
+            wisdomBonus += 1;
+        }
+        if (choice === 'intelligence') {
+            intelligenceBonus += 1;
+        }
+        if (choice === 'charisma') {
+            charismaBonus += 1;
+        }
+    });
+
+    // subrace bonus
     if (subBonus.strength) {
         strengthBonus += parseInt(subBonus.strength);
     }
@@ -115,6 +137,11 @@ fetchGameData().then(({ items, data }) => {
     var classMenu = document.getElementById('classMenu');
     var abilityScoreItem = document.getElementsByClassName("abilityScoreItem");
     var form = document.querySelector('form');
+    var abilitiesList = ['strength','dexterity','constitution','wisdom','intelligence','charisma'];
+    var languageList = ['common', 'dwarvish', 'elvish', 'giant', 'gnombish', 'goblin', 'halfling', 'orc', 'abyssal',
+        'celestial', 'draconic', 'deep speech', 'infernal', 'primordial', 'sylvan', 'undercommon'];
+    var abilitySelect = [];
+    var languageSelect = [];
 
 
     // this will add the options
@@ -142,7 +169,7 @@ fetchGameData().then(({ items, data }) => {
         var i = finderBoy(data.races, 'name', raceMenu.value);
         var x = finderBoy(data.races[i].subraces, 'name', subraceMenu.value);
 
-        abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,data.races[i].subraces[x].abilityScoreIncrease);
+        abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,data.races[i].subraces[x].abilityScoreIncrease,abilitySelect);
 
         if (data.races[i].subraces[x].abilityScoreIncrease) {
             subraceTraitsP.removeAttribute("hidden");
@@ -166,6 +193,38 @@ fetchGameData().then(({ items, data }) => {
                 var newP = document.createElement('p');
                 newP.innerHTML = '<span class="traitName">' + trait.name + '.</span><span class="traitDescription"> ' + converter.makeHtml(trait.description) + '</span>';
                 subraceTraitsP.append(newP);
+
+                if (trait.name === 'Extra Language') {
+                    var newChoiceMenu = document.createElement('select');
+                    newChoiceMenu.setAttribute('name', 'languageSelect');
+                    newChoiceMenu.classList.add('languageSelect');
+                    newChoiceMenu.setAttribute('required', '');
+
+                    var option = document.createElement('option');
+                    option.setAttribute('value', '');
+                    option.setAttribute('disabled', '');
+                    option.setAttribute('selected', '');
+                    option.innerHTML = 'Select a language';
+                    newChoiceMenu.append(option);
+
+                    languageList.forEach((language, i) => {
+                        var option = document.createElement('option');
+                        option.setAttribute('value', language);
+                        option.innerHTML = capitalizeFirstLetter(language);
+                        newChoiceMenu.append(option);
+                    });
+
+                    subraceTraitsP.append(newChoiceMenu);
+
+                    newChoiceMenu.addEventListener('change', function() {
+                        languageSelect = [];
+                        document.querySelectorAll("select.languageSelect").forEach((choice, i) => {
+                            languageSelect.push(choice.value);
+                        });
+                        abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,'',abilitySelect);
+                    });
+                }
+
             });
         }
         if (data.races[i].subraces[x].languages) {
@@ -196,8 +255,10 @@ fetchGameData().then(({ items, data }) => {
         subraceTraitsP.setAttribute("hidden", "");
         raceTraitsP.innerHTML = '';
         raceTraitsP.setAttribute("hidden", "");
+        abilitySelect = [];
+        languageSelect = [];
 
-        abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,'');
+        abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,'',abilitySelect);
 
         if (data.races[i].size) {
             raceTraitsP.removeAttribute("hidden");
@@ -220,6 +281,42 @@ fetchGameData().then(({ items, data }) => {
                     var abilScoreP = document.createElement('p');
                     abilScoreP.innerHTML = '<span class="traitName">Increase your choice of ability scores by: </span><span class="traitDescription">' + data.races[i].abilityScoreIncrease[key] + '</span>';
                     raceTraitsP.append(abilScoreP);
+
+                    // this will add select elements to choose what abilities will get a increase
+                    var choiceAmount = data.races[i].abilityScoreIncrease[key];
+
+                    while (choiceAmount > 0) {
+                        var newChoiceMenu = document.createElement('select');
+                        newChoiceMenu.setAttribute('name', 'abilitySelect');
+                        newChoiceMenu.classList.add('abilitySelect');
+                        newChoiceMenu.setAttribute('required', '');
+
+                        var option = document.createElement('option');
+                        option.setAttribute('value', '');
+                        option.setAttribute('disabled', '');
+                        option.setAttribute('selected', '');
+                        option.innerHTML = 'Select an ability to increase by 1';
+                        newChoiceMenu.append(option);
+
+                        abilitiesList.forEach((ability, i) => {
+                            var option = document.createElement('option');
+                            option.setAttribute('value', ability);
+                            option.innerHTML = capitalizeFirstLetter(ability);
+                            newChoiceMenu.append(option);
+                        });
+
+                        raceTraitsP.append(newChoiceMenu);
+                        choiceAmount -= 1;
+                        newChoiceMenu.addEventListener('change', function() {
+                            abilitySelect = [];
+                            document.querySelectorAll("select.abilitySelect").forEach((choice, i) => {
+                                abilitySelect.push(choice.value);
+                            });
+                            abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,'',abilitySelect);
+                        });
+
+                    }
+
                 } else {
                     var abilScoreP = document.createElement('p');
                     abilScoreP.innerHTML = '<span class="traitName">'+capitalizeFirstLetter(key)+' increases by: </span><span class="traitDescription">' + data.races[i].abilityScoreIncrease[key] + '</span>';
@@ -239,6 +336,7 @@ fetchGameData().then(({ items, data }) => {
         }
 
         if (data.races[i].languages) {
+            var choiceAmount = 0;
             var message = '<span class="traitName">Languages: </span><span class="traitDescription">';
             raceTraitsP.removeAttribute("hidden");
             var kk = document.createElement('p');
@@ -250,12 +348,47 @@ fetchGameData().then(({ items, data }) => {
                 if (language === "choice") {
                     message = message + ' <i>Player Choice</i>';
                     kk.innerHTML = message;
+                    choiceAmount += 1;
                 } else {
                     message = message + ' ' + capitalizeFirstLetter(language);
                     kk.innerHTML = message;
                 }
             });
+
             raceTraitsP.append(kk);
+
+            while (choiceAmount > 0) {
+                var newChoiceMenu = document.createElement('select');
+                newChoiceMenu.setAttribute('name', 'languageSelect');
+                newChoiceMenu.classList.add('languageSelect');
+                newChoiceMenu.setAttribute('required', '');
+
+                var option = document.createElement('option');
+                option.setAttribute('value', '');
+                option.setAttribute('disabled', '');
+                option.setAttribute('selected', '');
+                option.innerHTML = 'Select a language';
+                newChoiceMenu.append(option);
+
+                languageList.forEach((language, i) => {
+                    var option = document.createElement('option');
+                    option.setAttribute('value', language);
+                    option.innerHTML = capitalizeFirstLetter(language);
+                    newChoiceMenu.append(option);
+                });
+
+                raceTraitsP.append(newChoiceMenu);
+                choiceAmount -= 1;
+
+                newChoiceMenu.addEventListener('change', function() {
+                    languageSelect = [];
+                    document.querySelectorAll("select.languageSelect").forEach((choice, i) => {
+                        languageSelect.push(choice.value);
+                    });
+                    abilityScoreBonusUpdater(data.races[i].abilityScoreIncrease,'',abilitySelect);
+                });
+            }
+
         }
 
         if (data.races[i].subraces) {
@@ -460,7 +593,8 @@ fetchGameData().then(({ items, data }) => {
                 method: 'POST',
                 body: JSON.stringify({ name, race, subrace, _class,
                 strength, dexterity, constitution, wisdom, intelligence, charisma,
-                age, height, weight, eyes, skin, hair, appearance, backstory, equipmentSelect}),
+                age, height, weight, eyes, skin, hair, appearance, backstory, equipmentSelect,
+                abilitySelect, languageSelect}),
                 headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();

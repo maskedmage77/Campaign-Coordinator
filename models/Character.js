@@ -26,28 +26,17 @@ const characterSchema = new mongoose.Schema({
     }],
     race: {
         type: String,
-        required: true
-    },
-    subrace: {
-        type: String
+        required: true,
+        subrace: {
+            type: String
+        }
     },
     languages: [{
-        name: {
-            type: String,
-            required: true
-        },
-        id: {
-            type: Number,
-            required: true
-        }
+        type: String
     }],
     proficiencies: [{
         name: {
             type: String,
-            required: true
-        },
-        id: {
-            type: Number,
             required: true
         }
     }],
@@ -56,8 +45,8 @@ const characterSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        id: {
-            type: Number,
+        description: {
+            type: String,
             required: true
         }
     }],

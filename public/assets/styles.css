@@ -389,13 +389,13 @@ textarea {
     margin: 0em;
 }
 
-#raceTraitsP p:first-child,
-#subraceTraitsP p:first-child {
+#raceTraitsP p,
+#subraceTraitsP p  {
     margin-top: 0em;
 }
 
 #raceTraitsP p:last-child,
-#subraceTraitsP p:first-child {
+#subraceTraitsP p:last-child {
     margin-bottom: 0em;
 }
 
@@ -446,6 +446,12 @@ textarea {
     font-size: 0.75em;
 }
 
+.abilityBonus {
+    display: inline;
+    color: var(--font1);
+    font-size: 2em;
+}
+
 .abilityScoreItem input {
     color: var(--accentColor);
     background-color: inherit;
@@ -468,8 +474,11 @@ textarea {
     margin-top: 0em;
 }
 
-.abilityBonus {
-    display: inline;
-    color: var(--font1);
-    font-size: 2em;
+@media screen and (max-width: 600px) {
+    .abilityBonus {
+        font-size: 1.5em;
+    }
+    .abilityScoreItem input {
+        font-size: 1.5em;
+    }
 }
