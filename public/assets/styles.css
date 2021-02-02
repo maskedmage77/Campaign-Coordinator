@@ -113,6 +113,10 @@ textarea {
     text-align: center;
 }
 
+.accentColor {
+    color: var(--accentColor);
+}
+
 .contentView {
     display: grid;
     grid-template-columns: 1fr 868px 1fr;

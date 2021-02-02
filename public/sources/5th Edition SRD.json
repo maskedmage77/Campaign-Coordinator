@@ -752,6 +752,24 @@
         {
             "name":"Wizard"
         }
-    ]
+    ],
+
+    "languages":[
+        "common",
+        "dwarvish",
+        "elvish",
+        "giant",
+        "gnombish",
+        "goblin",
+        "halfling",
+        "orc",
+        "abyssal",
+        "celestial",
+        "draconic",
+        "deep speech",
+        "infernal",
+        "primordial",
+        "sylvan",
+        "undercommon"]
 
 }

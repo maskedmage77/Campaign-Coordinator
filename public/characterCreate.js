@@ -138,10 +138,10 @@ fetchGameData().then(({ items, data }) => {
     var abilityScoreItem = document.getElementsByClassName("abilityScoreItem");
     var form = document.querySelector('form');
     var abilitiesList = ['strength','dexterity','constitution','wisdom','intelligence','charisma'];
-    var languageList = ['common', 'dwarvish', 'elvish', 'giant', 'gnombish', 'goblin', 'halfling', 'orc', 'abyssal',
-        'celestial', 'draconic', 'deep speech', 'infernal', 'primordial', 'sylvan', 'undercommon'];
+    var languageList = data.languages;
     var abilitySelect = [];
     var languageSelect = [];
+    var skillSelect = [];
 
 
     // this will add the options
@@ -419,6 +419,7 @@ fetchGameData().then(({ items, data }) => {
         var i = finderBoy(data.classes, 'name', classMenu.value);
         classInfo.setAttribute("hidden", "");
         classInfo.innerHTML = '';
+        skillSelect = [];
 
         // display hit dice for selected class
         var hitDiceDisplay = document.createElement('p');
@@ -489,7 +490,7 @@ fetchGameData().then(({ items, data }) => {
             classInfo.append(hitDiceDisplay);
         }
 
-        // run if equipment to select exists
+        // run if there is equipment to select exists
         if (data.classes[i].equipmentSelect) {
 
             // runs for each question
@@ -529,9 +530,52 @@ fetchGameData().then(({ items, data }) => {
                 });
                 classInfo.append(itemSelectMenu);
             });
-            classInfo.removeAttribute("hidden");
         }
 
+        // run if there are skills to select exists
+        if (data.classes[i].skillSelect) {
+
+            var quantity = parseInt(data.classes[i].skillSelect.quantity);
+
+            var skillSelectMenu = document.createElement('select');
+            skillSelectMenu.setAttribute("name", 'skillSelect');
+            skillSelectMenu.classList.add('skillSelect');
+            skillSelectMenu.setAttribute('required', '');
+            skillSelectMenu.setAttribute('multiple', '');
+
+            var skillSelectInfo = document.createElement('p');
+            skillSelectInfo.innerHTML = 'As a ' + capitalizeFirstLetter(data.classes[i].name) + ' you can select <span class="accentColor">' + quantity + '</span> skills to be proficient in.'
+            classInfo.append(skillSelectInfo);
+
+            data.classes[i].skillSelect.skills.forEach((skill, i) => {
+                var newOption = document.createElement('option');
+                newOption.innerHTML = capitalizeFirstLetter(skill);
+                newOption.setAttribute("value",skill);
+                skillSelectMenu.append(newOption);
+            });
+
+            skillSelectMenu.addEventListener('change', function(){
+                skillSelect = [];
+                for (var option of skillSelectMenu.options) {
+                    if (skillSelect.length > quantity) {
+                        for(var i = 0; i < skillSelectMenu.length; i++){
+                            skillSelectMenu[i].selected = false;
+                        }
+                    }
+                    else {
+                        if (option.selected) {
+                            skillSelect.push(option.value);
+                        }
+                    }
+
+                }
+            });
+
+            skillSelectMenu.setAttribute('size', data.classes[i].skillSelect.skills.length);
+            classInfo.append(skillSelectMenu);
+        }
+
+        classInfo.removeAttribute("hidden");
     });
 
     // increase ablity score
@@ -594,7 +638,7 @@ fetchGameData().then(({ items, data }) => {
                 body: JSON.stringify({ name, race, subrace, _class,
                 strength, dexterity, constitution, wisdom, intelligence, charisma,
                 age, height, weight, eyes, skin, hair, appearance, backstory, equipmentSelect,
-                abilitySelect, languageSelect}),
+                abilitySelect, languageSelect, skillSelect}),
                 headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();
