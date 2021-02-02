@@ -478,11 +478,43 @@ textarea {
     margin-top: 0em;
 }
 
+.skillSelectMenu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.skillSelectMenu div {
+    background-color: var(--window);
+    border-radius: 0.5em;
+    padding: 1em;
+    text-align: center;
+    margin: 0.5em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(0, 0, 0, 0.1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.selected {
+    color: var(--accentColor);
+}
+
 @media screen and (max-width: 600px) {
     .abilityBonus {
         font-size: 1.5em;
     }
     .abilityScoreItem input {
         font-size: 1.5em;
+    }
+    .skillSelectMenu {
+        grid-template-columns: 1fr 1fr;
+    }
+    .skillSelectMenu div {
+        font-size: 0.75em;
     }
 }

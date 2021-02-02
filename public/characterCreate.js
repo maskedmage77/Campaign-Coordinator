@@ -12,6 +12,15 @@ function finderBoy(array, attr, value) {
     return -1;
 }
 
+// function to remove something from array
+function arrayRemove(array,item) {
+    for( var i = 0; i < array.length; i++){
+        if ( array[i] === item) {
+            array.splice(i, 1);
+        }
+    }
+}
+
 // function to capitalize first letter of string passed in
 function capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -537,41 +546,34 @@ fetchGameData().then(({ items, data }) => {
 
             var quantity = parseInt(data.classes[i].skillSelect.quantity);
 
-            var skillSelectMenu = document.createElement('select');
-            skillSelectMenu.setAttribute("name", 'skillSelect');
-            skillSelectMenu.classList.add('skillSelect');
-            skillSelectMenu.setAttribute('required', '');
-            skillSelectMenu.setAttribute('multiple', '');
+            var skillSelectMenu = document.createElement('div');
+            skillSelectMenu.classList.add('skillSelectMenu');
 
             var skillSelectInfo = document.createElement('p');
             skillSelectInfo.innerHTML = 'As a ' + capitalizeFirstLetter(data.classes[i].name) + ' you can select <span class="accentColor">' + quantity + '</span> skills to be proficient in.'
             classInfo.append(skillSelectInfo);
 
             data.classes[i].skillSelect.skills.forEach((skill, i) => {
-                var newOption = document.createElement('option');
+                var newOption = document.createElement('div');
                 newOption.innerHTML = capitalizeFirstLetter(skill);
-                newOption.setAttribute("value",skill);
+                newOption.setAttribute("data-value",skill);
                 skillSelectMenu.append(newOption);
-            });
 
-            skillSelectMenu.addEventListener('change', function(){
-                skillSelect = [];
-                for (var option of skillSelectMenu.options) {
-                    if (skillSelect.length > quantity) {
-                        for(var i = 0; i < skillSelectMenu.length; i++){
-                            skillSelectMenu[i].selected = false;
-                        }
+                var selected = false;
+                newOption.addEventListener('click', function(){
+                    if (selected) {
+                        arrayRemove(skillSelect,skill);
+                        selected = false;
+                        newOption.classList.remove('selected');
                     }
-                    else {
-                        if (option.selected) {
-                            skillSelect.push(option.value);
-                        }
+                    else if (skillSelect.length < quantity) {
+                        skillSelect.push(skill);
+                        selected = true;
+                        newOption.classList.add('selected');
                     }
 
-                }
+                });
             });
-
-            skillSelectMenu.setAttribute('size', data.classes[i].skillSelect.skills.length);
             classInfo.append(skillSelectMenu);
         }
 
