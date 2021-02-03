@@ -151,7 +151,7 @@ fetchGameData().then(({ items, data }) => {
     var abilitySelect = [];
     var languageSelect = [];
     var skillSelect = [];
-
+    var toolSelect = [];
 
     // this will add the options
     if (data.races.length > 0) {
@@ -172,7 +172,6 @@ fetchGameData().then(({ items, data }) => {
             classMenu.append(newOption);
         });
     }
-
 
     subraceMenu.addEventListener("change", function() {
         var i = finderBoy(data.races, 'name', raceMenu.value);
@@ -429,6 +428,7 @@ fetchGameData().then(({ items, data }) => {
         classInfo.setAttribute("hidden", "");
         classInfo.innerHTML = '';
         skillSelect = [];
+        toolSelect = [];
 
         // display hit dice for selected class
         var hitDiceDisplay = document.createElement('p');
@@ -614,8 +614,8 @@ fetchGameData().then(({ items, data }) => {
         const _class = form.class.value;
         const strength = form.strength.value;
         const dexterity = form.dexterity.value;
-        const constitution = form.dexterity.value;
-        const wisdom = form.dexterity.value;
+        const constitution = form.constitution.value;
+        const wisdom = form.wisdom.value;
         const intelligence = form.intelligence.value;
         const charisma = form.charisma.value;
         const age = form.age.value;
@@ -640,7 +640,7 @@ fetchGameData().then(({ items, data }) => {
                 body: JSON.stringify({ name, race, subrace, _class,
                 strength, dexterity, constitution, wisdom, intelligence, charisma,
                 age, height, weight, eyes, skin, hair, appearance, backstory, equipmentSelect,
-                abilitySelect, languageSelect, skillSelect}),
+                abilitySelect, languageSelect, skillSelect, toolSelect}),
                 headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();

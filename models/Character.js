@@ -11,7 +11,7 @@ const characterSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    class: [{
+    _class: [{
         name: {
             type: String,
             required: true
@@ -26,10 +26,10 @@ const characterSchema = new mongoose.Schema({
     }],
     race: {
         type: String,
-        required: true,
-        subrace: {
-            type: String
-        }
+        required: true
+    },
+    subrace: {
+        type: String
     },
     languages: [{
         type: String
@@ -37,7 +37,13 @@ const characterSchema = new mongoose.Schema({
     proficiencies: [{
         name: {
             type: String,
-            required: true
+            required: true,
+            lowercase: true
+        },
+        type: {
+            type: String,
+            required: true,
+            lowercase: true
         }
     }],
     traits: [{
@@ -73,6 +79,28 @@ const characterSchema = new mongoose.Schema({
     charisma: {
         type: Number,
         required: true
+    },
+    hitDice: {
+        total: [{
+            sides: {
+                type: Number,
+                required: true
+            },
+            amount: {
+                type: Number,
+                required: true
+            }
+        }],
+        current: [{
+            sides: {
+                type: Number,
+                required: true
+            },
+            amount: {
+                type: Number,
+                required: true
+            }
+        }]
     },
     currentHitpoints: {
         type: Number,

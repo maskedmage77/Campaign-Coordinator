@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
-const gamesController = require('../controllers/gamesController');
+const characterController = require('../controllers/characterController');
 const Character = require('../models/Character');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
@@ -37,5 +37,6 @@ router.get('/create', requireAuth, (req, res) => {
     res.render('charactersCreate', {title: 'Create Character'});
 });
 
+router.post('/create', requireAuth, characterController.create_post);
 
 module.exports = router;
