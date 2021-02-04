@@ -518,3 +518,58 @@ textarea {
         font-size: 0.75em;
     }
 }
+
+/* characters page styles */
+.charactersBox {
+    display: grid;
+    column-gap: 1em;
+    row-gap: 1em;
+    margin-bottom: 1em;
+    grid-template-columns: 1fr 1fr;
+}
+
+.characterItem {
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(200, 200, 200, 0.1);
+
+}
+
+.characterItem p {
+    margin-top: 0em;
+    color: var(--font2);
+}
+
+.characterName {
+    font-size: 1.5em;
+    margin-bottom: 0.375em;
+    color: white !important;
+}
+
+.characterItem p:last-child {
+    margin-bottom: 0em;
+}
+
+.characterSkillsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+    margin-bottom: 1em;
+}
+
+.characterSkill {
+    text-align: center;
+    background-color: var(--window);
+    border-radius: 0.5em;
+    box-shadow:
+    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+    -4px -4px 4px 0 rgba(0, 0, 0, 0.1);
+    padding:0.5em;
+}
+
+.characterSkill p:nth-child(2) {
+    color: var(--accentColor);
+}
