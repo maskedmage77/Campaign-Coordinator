@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const { isEmail } = require('validator');
-
 
 const characterSchema = new mongoose.Schema({
     name: {
@@ -42,8 +40,7 @@ const characterSchema = new mongoose.Schema({
         },
         type: {
             type: String,
-            required: true,
-            lowercase: true
+            required: true
         }
     }],
     traits: [{
@@ -68,11 +65,11 @@ const characterSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    intelligence: {
+    wisdom: {
         type: Number,
         required: true
     },
-    wisdom: {
+    intelligence: {
         type: Number,
         required: true
     },
@@ -162,15 +159,25 @@ const characterSchema = new mongoose.Schema({
             type: Number,
             required: true
         },
+        quantity: {
+            type: Number,
+            required: true
+        },
         weight: {
             type: Number,
             required: true
+        },
+        description: {
+            type: String
         },
         type: {
             type: String
         },
         subType: {
             type: String
+        },
+        equiped: {
+            type: Boolean
         },
         damage: [{
             amount: {
@@ -183,6 +190,9 @@ const characterSchema = new mongoose.Schema({
         properties: [{
             type: String
         }],
+        charges: {
+            type: Number
+        },
         armorClass: {
             type: {
                 type: String

@@ -1402,7 +1402,7 @@
             "name":"waterskin",
             "description":"A waterskin can hold 4 pints of liquid.",
             "weight":5,
-            "charges":"5"
+            "charges":5
         },
         {
             "id":150,

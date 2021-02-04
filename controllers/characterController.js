@@ -1,5 +1,4 @@
 const User = require('../models/User');
-const Game = require('../models/Game');
 const Character = require('../models/Character');
 const jwt = require('jsonwebtoken');
 const jwtSecret = require('../jwtSecret.js');
@@ -28,7 +27,8 @@ module.exports.create_post = async (req, res) => {
             equipmentSelect, abilitySelect, languageSelect, skillSelect, toolSelect} = req.body;
 
         var sourceFile = JSON.parse(fs.readFileSync('./public/sources/5th Edition SRD.json'));
-        var itemsList = JSON.parse(fs.readFileSync('./public/sources/items.json'));
+        var itemList = JSON.parse(fs.readFileSync('./public/sources/items.json'));
+        itemList = itemList.items;
 
         var abilitiesList = ['strength','dexterity','constitution','wisdom','intelligence','charisma'];
 
@@ -42,6 +42,16 @@ module.exports.create_post = async (req, res) => {
             for (var i = 0; i < array.length; i += 1) {
                 if (array[i][attr] === value) {
                     return i;
+                }
+            }
+            return -1;
+        }
+
+        // function to find array object
+        function finderObject(array, attr, value) {
+            for (var i = 0; i < array.length; i += 1) {
+                if (array[i][attr] === value) {
+                    return array[i];
                 }
             }
             return -1;
@@ -74,7 +84,7 @@ module.exports.create_post = async (req, res) => {
         var hitDice = {};
         hitDice.total = [];
         hitDice.current = [];
-        hitDice.total.push({sides: parseInt(classInfo.hitDice), total: 1});
+        hitDice.total.push({sides: parseInt(classInfo.hitDice), amount: 1});
         hitDice.current = hitDice.total;
 
         var armorProficiencies = classInfo.armorProficiencies;
@@ -195,12 +205,12 @@ module.exports.create_post = async (req, res) => {
         if (classInfo.hasOwnProperty('features')) {
             classInfo.features.forEach((feature, i) => {
                 if (feature.level.isArray) {
-                    if (feature.level.includes('1')) {
+                    if (feature.level.includes(1)) {
                         traits = traits.concat(feature);
                     }
                 }
                 else {
-                    if (feature.level === '1') {
+                    if (feature.level === 1) {
                         traits = traits.concat(feature);
                     }
                 }
@@ -216,11 +226,11 @@ module.exports.create_post = async (req, res) => {
         var currentHitpoints = maximumHitpoints;
         var temporaryHitpoints = 0;
 
-        // setup _class
+        // initialize _class
         var classStuff = {name: _class, level: 1};
         _class = [classStuff];
 
-        //setup proficiencies
+        // initialize proficiencies
         var proficiencies = [];
         armorProficiencies.forEach((proficiency, i) => {
             proficiencies.push({name: proficiency, type: 'armor'});
@@ -234,40 +244,131 @@ module.exports.create_post = async (req, res) => {
         skillProficiencies.forEach((proficiency, i) => {
             proficiencies.push({name: proficiency, type: 'skill'});
         });
+        savingThrows.forEach((proficiency, i) => {
+            proficiencies.push({name: proficiency, type: 'savingThrow'});
+        });
 
-        // FIX ARMOR CLASS
+        // initialize inventory
+        var inventory = [];
 
-        console.log(traits);
+        // add items from class
+        classInfo.equipment.forEach((item, i) => {
+            if (item.hasOwnProperty('quantity')) {
+                var result = itemList.filter(item2 => {
+                    return item2.id === item.id;
+                });
+                if (result[0].type === "armor") {
+                    result[0].equiped = true;
+                };
+                result[0].quantity = item.quantity;
+                inventory = inventory.concat(result);
+            }
+            else {
+                var result = itemList.filter(item2 => {
+                    return item2.id === item.id;
+                });
+                if (result[0].type === "armor") {
+                    result[0].equiped = true;
+                };
+                result[0].quantity = 1;
+                inventory = inventory.concat(result);
+            }
+        });
 
-        // try {
-        //     const character = await Character.create({
-        //         name,
-        //         race,
-        //         race.subrace: subrace,
-        //         _class,
-        //         strength,
-        //         dexterity,
-        //         constitution,
-        //         charisma,
-        //         age,
-        //         height,
-        //         weight,
-        //         eyes,
-        //         appearance,
-        //         backstory
-        //         });
-        //     return res.status(201).json({ character: character._id });
-        //     res.redirect('/games');
-        // }
-        // catch (err) {
-        //     const errors = handleErrors(err);
-        //     return res.status(400).json({ errors });
-        // }
+        // add selected items
+        equipmentSelect.forEach((selection, i) => {
+            items = classInfo.equipmentSelect[i].options[selection].items;
+            items.forEach((item, i) => {
+                if (item.hasOwnProperty('quantity')) {
+                    var result = itemList.filter(item2 => {
+                        return item2.id === item.id;
+                    });
+                    if (result[0].type === "armor") {
+                        result[0].equiped = true;
+                    };
+                    result[0].quantity = item.quantity;
+                    inventory = inventory.concat(result);
+                }
+                else {
+                    var result = itemList.filter(item2 => {
+                        return item2.id === item.id;
+                    });
+                    if (result[0].type === "armor") {
+                        result[0].equiped = true;
+                    };
+                    result[0].quantity = 1;
+                    inventory = inventory.concat(result);
+                }
+            });
+        });
+
+        // initializing armor class
+        var armorClass = 10;
+        var dexMod = Math.floor((dexterity - 10) / 2);
+        var isArmor = false;
+        inventory.forEach((item, i) => {
+            if (item.type === 'armor') {
+                armorClass = item.armorClass.base;
+                if (item.armorClass.modMax) {
+                    isArmor = true;
+                    var modifier = Math.min(item.armorClass.modMax, dexMod);
+                    armorClass = armorClass + modifier;
+                }
+                else {
+                    isArmor = true;
+                    armorClass = armorClass + dexMod;
+                }
+            }
+        });
+        if (!isArmor) {
+            armorClass = armorClass + dexMod;
+            traits.forEach((trait, i) => {
+                if (trait.name === "unarmored defence") {
+                    armorClass = 10 + dexMod + conMod;
+                }
+            });
+        }
+
+        try {
+            const character = await Character.create({
+                name,
+                creator,
+                _class,
+                race,
+                languages,
+                proficiencies,
+                traits,
+                strength,
+                dexterity,
+                constitution,
+                wisdom,
+                intelligence,
+                charisma,
+                hitDice,
+                currentHitpoints,
+                maximumHitpoints,
+                temporaryHitpoints,
+                armorClass,
+                initiative,
+                speed,
+                inspiration,
+                proficiencyBonus,
+                age,
+                height,
+                weight,
+                eyes,
+                skin,
+                hair,
+                appearance,
+                backstory,
+                inventory
+                });
+            return res.status(201).json({ character });
+            res.redirect('/characters');
+        }
+        catch (err) {
+            console.log(err)
+            return res.status(400);
+        }
     });
 }
-
-
-// name, race, subrace, _class,
-// strength, dexterity, constitution, wisdom, intelligence, charisma,
-// age, height, weight, eyes, skin, hair, appearance, backstory, equipmentSelect,
-// abilitySelect, languageSelect, skillSelect
