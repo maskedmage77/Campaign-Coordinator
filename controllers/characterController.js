@@ -68,6 +68,7 @@ module.exports.create_post = async (req, res) => {
         var languages = raceInfo.languages;
         var inspiration = 0;
         var proficiencyBonus= 2;
+        var initiative = 0;
 
         // setting hit dice
         var hitDice = {};
@@ -205,15 +206,36 @@ module.exports.create_post = async (req, res) => {
                 }
             });
         }
+
         traits.forEach(function(v){ delete v.shown });
         traits.forEach(function(v){ delete v.level });
 
         // calculate hitpoints
         var conMod = Math.floor((constitution - 10) / 2);
-        var maximumHitpoints = classInfo.hitDice + conMod;
+        var maximumHitpoints = parseInt(classInfo.hitDice) + conMod;
         var currentHitpoints = maximumHitpoints;
         var temporaryHitpoints = 0;
 
+        // setup _class
+        var classStuff = {name: _class, level: 1};
+        _class = [classStuff];
+
+        //setup proficiencies
+        var proficiencies = [];
+        armorProficiencies.forEach((proficiency, i) => {
+            proficiencies.push({name: proficiency, type: 'armor'});
+        });
+        weaponProficiencies.forEach((proficiency, i) => {
+            proficiencies.push({name: proficiency, type: 'weapon'});
+        });
+        toolProficiencies.forEach((proficiency, i) => {
+            proficiencies.push({name: proficiency, type: 'tool'});
+        });
+        skillProficiencies.forEach((proficiency, i) => {
+            proficiencies.push({name: proficiency, type: 'skill'});
+        });
+
+        // FIX ARMOR CLASS
 
         console.log(traits);
 

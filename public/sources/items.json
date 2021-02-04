@@ -1,9 +1,9 @@
 {
     "items":[
         {
-            "id":"0",
+            "id":0,
             "name":"club",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -17,9 +17,9 @@
             ]
         },
         {
-            "id":"1",
+            "id":1,
             "name":"dagger",
-            "weight":"1",
+            "weight":1,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -35,9 +35,9 @@
             ]
         },
         {
-            "id":"2",
+            "id":2,
             "name":"greatclub",
-            "weight":"10",
+            "weight":10,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -51,9 +51,9 @@
             ]
         },
         {
-            "id":"3",
+            "id":3,
             "name":"handaxe",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -68,9 +68,9 @@
             ]
         },
         {
-            "id":"4",
+            "id":4,
             "name":"javelin",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -85,9 +85,9 @@
             ]
         },
         {
-            "id":"5",
+            "id":5,
             "name":"light hammer",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -102,9 +102,9 @@
             ]
         },
         {
-            "id":"6",
+            "id":6,
             "name":"mace",
-            "weight":"4",
+            "weight":4,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -115,9 +115,9 @@
             ]
         },
         {
-            "id":"7",
+            "id":7,
             "name":"quarterstaff",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -131,9 +131,9 @@
             ]
         },
         {
-            "id":"8",
+            "id":8,
             "name":"sickle",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -147,9 +147,9 @@
             ]
         },
         {
-            "id":"9",
+            "id":9,
             "name":"spear",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"simple weapon",
             "damage":[
@@ -164,9 +164,9 @@
             ]
         },
         {
-            "id":"10",
+            "id":10,
             "name":"light crossbow",
-            "weight":"5",
+            "weight":5,
             "type":"weapon",
             "subType":"simple ranged weapon",
             "damage":[
@@ -182,9 +182,9 @@
             ]
         },
         {
-            "id":"11",
+            "id":11,
             "name":"dart",
-            "weight":"0.25",
+            "weight":0.25,
             "type":"weapon",
             "subType":"simple ranged weapon",
             "damage":[
@@ -199,9 +199,9 @@
             ]
         },
         {
-            "id":"12",
+            "id":12,
             "name":"shortbow",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"simple ranged weapon",
             "damage":[
@@ -216,9 +216,9 @@
             ]
         },
         {
-            "id":"13",
+            "id":13,
             "name":"sling",
-            "weight":"0.1",
+            "weight":0.1,
             "type":"weapon",
             "subType":"simple ranged weapon",
             "damage":[
@@ -232,9 +232,9 @@
             ]
         },
         {
-            "id":"14",
+            "id":14,
             "name":"battleaxe",
-            "weight":"4",
+            "weight":4,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -248,9 +248,9 @@
             ]
         },
         {
-            "id":"15",
+            "id":15,
             "name":"flail",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -261,9 +261,9 @@
             ]
         },
         {
-            "id":"16",
+            "id":16,
             "name":"glaive",
-            "weight":"6",
+            "weight":6,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -279,9 +279,9 @@
             ]
         },
         {
-            "id":"17",
+            "id":17,
             "name":"greataxe",
-            "weight":"4",
+            "weight":4,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -296,9 +296,9 @@
             ]
         },
         {
-            "id":"18",
+            "id":18,
             "name":"greatsword",
-            "weight":"6",
+            "weight":6,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -313,9 +313,9 @@
             ]
         },
         {
-            "id":"19",
+            "id":19,
             "name":"halberd",
-            "weight":"6",
+            "weight":6,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -331,9 +331,9 @@
             ]
         },
         {
-            "id":"20",
+            "id":20,
             "name":"lance",
-            "weight":"6",
+            "weight":6,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -349,9 +349,9 @@
             "special":"You have disadvantage when you use a lance to Attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted."
         },
         {
-            "id":"21",
+            "id":21,
             "name":"longsword",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -365,9 +365,9 @@
             ]
         },
         {
-            "id":"22",
+            "id":22,
             "name":"maul",
-            "weight":"10",
+            "weight":10,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -382,9 +382,9 @@
             ]
         },
         {
-            "id":"23",
+            "id":23,
             "name":"morningstar",
-            "weight":"4",
+            "weight":4,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -395,9 +395,9 @@
             ]
         },
         {
-            "id":"24",
+            "id":24,
             "name":"pike",
-            "weight":"18",
+            "weight":18,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -413,9 +413,9 @@
             ]
         },
         {
-            "id":"25",
+            "id":25,
             "name":"rapier",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -429,9 +429,9 @@
             ]
         },
         {
-            "id":"26",
+            "id":26,
             "name":"scimitar",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -446,9 +446,9 @@
             ]
         },
         {
-            "id":"27",
+            "id":27,
             "name":"shortsword",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -462,9 +462,9 @@
             ]
         },
         {
-            "id":"28",
+            "id":28,
             "name":"trident",
-            "weight":"4",
+            "weight":4,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -479,9 +479,9 @@
             ]
         },
         {
-            "id":"29",
+            "id":29,
             "name":"war pick",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -492,9 +492,9 @@
             ]
         },
         {
-            "id":"30",
+            "id":30,
             "name":"warhammer",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -508,9 +508,9 @@
             ]
         },
         {
-            "id":"31",
+            "id":31,
             "name":"whip",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"martial weapon",
             "damage":[
@@ -525,9 +525,9 @@
             ]
         },
         {
-            "id":"32",
+            "id":32,
             "name":"blowgun",
-            "weight":"1",
+            "weight":1,
             "type":"weapon",
             "subType":"martial ranged weapon",
             "damage":[
@@ -542,9 +542,9 @@
             ]
         },
         {
-            "id":"33",
+            "id":33,
             "name":"hand crossbow",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"martial ranged weapon",
             "damage":[
@@ -560,9 +560,9 @@
             ]
         },
         {
-            "id":"34",
+            "id":34,
             "name":"heavy crossbow",
-            "weight":"18",
+            "weight":18,
             "type":"weapon",
             "subType":"martial ranged weapon",
             "damage":[
@@ -579,9 +579,9 @@
             ]
         },
         {
-            "id":"35",
+            "id":35,
             "name":"longbow",
-            "weight":"2",
+            "weight":2,
             "type":"weapon",
             "subType":"martial ranged weapon",
             "damage":[
@@ -597,9 +597,9 @@
             ]
         },
         {
-            "id":"36",
+            "id":36,
             "name":"net",
-            "weight":"3",
+            "weight":3,
             "type":"weapon",
             "subType":"martial ranged weapon",
             "properties":[
@@ -609,1007 +609,1059 @@
             "special":"A Large or smaller creature hit by a net is Restrained until it is freed. A net has no Effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, Ending the Effect and destroying the net. When you use an action, Bonus Action, or Reaction to Attack with a net, you can make only one Attack regardless of the number of attacks you can normally make."
         },
         {
-            "id":"37",
+            "id":37,
             "name":"padded armor",
             "description":"Padded armor consists of quilted layers of cloth and batting.",
-            "weight":"8",
+            "weight":8,
             "type":"armor",
             "subType":"light armor",
-            "armor class":"11 + dexterity modifier",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "base": 11
+            },
+            "stealthDisadvantage":true
         },
         {
-            "id":"38",
+            "id":38,
             "name":"leather armor",
             "description":"The Breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
-            "weight":"10",
+            "weight":10,
             "type":"armor",
             "subType":"light armor",
-            "armor class":"11 + dexterity modifier"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "base": 11
+            }
         },
         {
-            "id":"39",
+            "id":39,
             "name":"studded leather armor",
             "description":"Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
-            "weight":"13",
+            "weight":13,
             "type":"armor",
             "subType":"light armor",
-            "armor class":"12 + dexterity modifier"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "base": 12
+            }
         },
         {
-            "id":"40",
+            "id":40,
             "name":"hide armor",
             "description":"This crude armor consists of thick furs and pelts. It is commonly worn by Barbarian tribes, evil Humanoids, and other folk who lack access to the tools and materials needed to create better armor.",
-            "weight":"12",
+            "weight":12,
             "type":"armor",
             "subType":"medium armor",
-            "armor class":"12 + dexterity modifier (max 2)"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "modMax": 2,
+                "base": 12
+            }
         },
         {
-            "id":"41",
+            "id":41,
             "name":"chain shirt",
             "description":"Made of interlocking metal rings, a Chain Shirt is worn between layers of clothing or leather. This armor offers modest Protection to the wearer’s upper body and allows the sound of the rings rubbing against one another to be muffled by outer layers.",
-            "weight":"20",
+            "weight":20,
             "type":"armor",
             "subType":"medium armor",
-            "armor class":"13 + dexterity modifier (max 2)"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "modMax": 2,
+                "base": 13
+            }
         },
         {
-            "id":"42",
+            "id":42,
             "name":"scale mail",
             "description":"This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much like the scales of a fish. The suit includes gauntlets.",
-            "weight":"45",
+            "weight":45,
             "type":"armor",
             "subType":"medium armor",
-            "armor class":"14 + dexterity modifier (max 2)",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "modMax": 2,
+                "base": 14
+            },
+            "stealthDisadvantage":true
         },
         {
-            "id":"43",
+            "id":43,
             "name":"breastplate",
             "description":"This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good Protection for the wearer’s vital organs while leaving the wearer relatively unencumbered.",
-            "weight":"20",
+            "weight":20,
             "type":"armor",
             "subType":"medium armor",
-            "armor class":"14 + dexterity modifier (max 2)"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "modMax": 2,
+                "base": 14
+            }
         },
         {
-            "id":"44",
+            "id":44,
             "name":"half plate",
             "description":"Half Plate consists of shaped metal plates that cover most of the wearer’s body. It does not include leg Protection beyond simple greaves that are attached with leather straps.",
-            "weight":"40",
+            "weight":40,
             "type":"armor",
             "subType":"medium armor",
-            "armor class":"15 + dexterity modifier (max 2)",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "mod": "dexterity",
+                "modMax": 2,
+                "base": 15
+            },
+            "stealthDisadvantage":true
         },
         {
-            "id":"45",
+            "id":45,
             "name":"ring mail",
             "description":"This armor is Leather Armor with heavy rings sewn into it. The rings help reinforce the armor against blows from Swords and axes. Ring Mail is inferior to Chain Mail, and it's usually worn only by those who can’t afford better armor.",
-            "weight":"40",
+            "weight":40,
             "type":"armor",
             "subType":"heavy armor",
-            "armor class":"14",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "base": 14
+            },
+            "stealthDisadvantage":true
         },
         {
-            "id":"46",
+            "id":46,
             "name":"chain mail",
             "description":"Made of interlocking metal rings, Chain Mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.",
-            "weight":"55",
+            "weight":55,
             "type":"armor",
             "subType":"heavy armor",
-            "armor class":"16",
-            "strength":"13",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "base": 16
+            },
+            "strengthRequirement":13,
+            "stealthDisadvantage":true
         },
         {
-            "id":"47",
+            "id":47,
             "name":"splint armor",
             "description":"This armor is made of narrow vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible Chain Mail protects the joints.",
-            "weight":"60",
+            "weight":60,
             "type":"armor",
             "subType":"heavy armor",
-            "armor class":"17",
-            "strength":"15",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "base": 17
+            },
+            "strengthRequirement":15,
+            "stealthDisadvantage":true
         },
         {
-            "id":"48",
+            "id":48,
             "name":"plate armor",
             "description":"Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.",
-            "weight":"65",
+            "weight":65,
             "type":"armor",
             "subType":"heavy armor",
-            "armor class":"18",
-            "strength":"15",
-            "stealth":"disadvantage"
+            "armorClass":{
+                "type": "armor",
+                "base": 18
+            },
+            "strengthRequirement":15,
+            "stealthDisadvantage":true
         },
         {
-            "id":"49",
+            "id":49,
             "name":"shield",
             "description":"A Shield is made from wood or metal and is carried in one hand. Wielding a Shield increases your Armor Class by 2. You can benefit from only one Shield at a time.",
-            "weight":"6",
+            "weight":6,
             "type":"off-hand",
-            "armor class":"2"
+            "armorClass":{
+                "type": "shield",
+                "base": 2
+            }
         },
         {
-            "id":"50",
+            "id":50,
             "name":"abacus",
             "description":"A standard tool used to make calculations.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"51",
+            "id":51,
             "name":"acid (vial)",
             "description":"As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"consumable"
         },
         {
-            "id":"52",
+            "id":52,
             "name":"alchemist's fire (flask)",
             "description":"This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames. ",
-            "weight":"1",
+            "weight":1,
             "type":"consumable"
         },
         {
-            "id":"53",
+            "id":53,
             "name":"arrows",
             "description":"Arrows are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.",
-            "weight":"0.05",
+            "weight":0.05,
             "type":"ammunition"
         },
         {
-            "id":"55",
+            "id":55,
             "name":"blowgun needles",
             "description":"Blowgun needles are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.",
-            "weight":"0.02",
+            "weight":0.02,
             "type":"ammunition"
         },
         {
-            "id":"56",
+            "id":56,
             "name":"crossbow bolts",
             "description":"Crossbow bolts are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon).",
-            "weight":"0.075",
+            "weight":0.075,
             "type":"ammunition"
         },
         {
-            "id":"57",
+            "id":57,
             "name":"sling bullets",
             "description":"Sling bullets are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.",
-            "weight":"0.075",
+            "weight":0.075,
             "type":"ammunition"
         },
         {
-            "id":"58",
+            "id":58,
             "name":"antitoxin (vial)",
             "description":"A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefit to undead or constructs. ",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"consumable"
         },
         {
-            "id":"59",
+            "id":59,
             "name":"crystal",
             "description":"An arcane focus is a special item–an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item–designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus. ",
-            "weight":"1",
+            "weight":1,
             "type":"arcane focus"
         },
         {
-            "id":"60",
+            "id":60,
             "name":"orb",
             "description":"An arcane focus is a special item–an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item–designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus. ",
-            "weight":"3",
+            "weight":3,
             "type":"arcane focus"
         },
         {
-            "id":"61",
+            "id":61,
             "name":"rod",
             "description":"An arcane focus is a special item–an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item–designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus. ",
-            "weight":"2",
+            "weight":2,
             "type":"arcane focus"
         },
         {
-            "id":"62",
+            "id":62,
             "name":"staff",
             "description":"An arcane focus is a special item–an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item–designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus. ",
-            "weight":"4",
+            "weight":4,
             "type":"arcane focus"
         },
         {
-            "id":"63",
+            "id":63,
             "name":"wand",
             "description":"An arcane focus is a special item–an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item–designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus. ",
-            "weight":"1",
+            "weight":1,
             "type":"arcane focus"
         },
         {
-            "id":"64",
+            "id":64,
             "name":"backpack",
             "description":"You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
-            "weight":"5",
+            "weight":5,
             "type":"container"
         },
         {
-            "id":"65",
+            "id":65,
             "name":"ball bearings (bag of 1000)",
             "description":"As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the save. ",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"66",
+            "id":66,
             "name":"barrel",
             "description":"A barrel can hold 40 gallons of liquid, or 4 cubic feet of solid material.",
-            "weight":"70"
+            "weight":70
         },
         {
-            "id":"67",
+            "id":67,
             "name":"basket",
             "description":"A basket can hold 2 cubic feet/40 pounds of gear.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"68",
+            "id":68,
             "name":"bedroll",
             "description":"You never know where you’re going to sleep, and a bedroll helps you get better sleep in a hayloft or on the cold ground. A bedroll consists of bedding and a blanket thin enough to be rolled up and tied. In an emergency, it can double as a stretcher.",
-            "weight":"7"
+            "weight":7
         },
         {
-            "id":"69",
+            "id":69,
             "name":"bell",
             "description":"A standard bell that rings, typically used for signaling.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"70",
+            "id":70,
             "name":"blanket",
             "description":"A thick, quilted, blanket made to keep you warm in cold weather.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"71",
+            "id":71,
             "name":"block and tackle",
             "description":"A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight you can normally lift.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"72",
+            "id":72,
             "name":"book",
             "description":"A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented using text or pictures. A book of spells is a spellbook.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"73",
+            "id":73,
             "name":"glass bottle",
             "description":"A bottle can hold 1 1/2 pints of liquid.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"74",
+            "id":74,
             "name":"bucket",
             "description":"A bucket can hold 3 gallons of liquid, or 1/2 cubic foot of solid material.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"75",
+            "id":75,
             "name":"caltrop (bag of 20)",
             "description":" an action, you can spread a bag of caltrops to cover a square area that is 5 feet on a side. Any creature that enters the area must succeed on a DC 15 Dexterity saving throw or stop moving this turn and take 1 piercing damage. Taking this damage reduces the creature's walking speed by 10 feet until the creature regains at least 1 hit point. A creature moving through the area at half speed doesn't need to make the save.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"76",
+            "id":76,
             "name":"candle",
             "description":"For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet.",
-            "weight":"0.2"
+            "weight":0.2
         },
         {
-            "id":"77",
+            "id":77,
             "name":"case (crossbow bolt)",
             "description":"This wooden case can hold up to twenty crossbow bolts.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"78",
+            "id":78,
             "name":"case (map or scroll)",
             "description":"This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"79",
+            "id":79,
             "name":"chain (10 feet)",
             "description":"A chain has 10 hit points. It can be burst with a successful DC 20 Strength check.",
-            "weight":"10"
+            "weight":10
         },
         {
-            "id":"80",
+            "id":80,
             "name":"chalk (1 piece)",
             "description":"A piece of chalk used for writing and marking on various surfaces.",
-            "weight":"0.05"
+            "weight":0.05
         },
         {
-            "id":"81",
+            "id":81,
             "name":"chest",
             "description":"A chest can hold 12 cubic feet/ 300 pounds of gear.",
-            "weight":"25",
+            "weight":25,
             "type":"container"
         },
         {
-            "id":"82",
+            "id":82,
             "name":"climber's kit",
             "description":"A climber's kit includes special pitons, boot tips, gloves, and a harness. You can use the climber's kit as an action to anchor yourself; when you do, you can't fall more than 25 feet from the point where you anchored yourself, and you can't climb more than 25 feet away from that point without undoing the anchor.",
-            "weight":"12"
+            "weight":12
         },
         {
-            "id":"83",
+            "id":83,
             "name":"common clothes",
             "description":"This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.",
-            "weight":"3",
+            "weight":3,
             "type":"clothing"
         },
         {
-            "id":"84",
+            "id":84,
             "name":"costume clothing",
             "description":"This set of clothes is fashioned after a particular costume, typically meant for entertaining.",
-            "weight":"4",
+            "weight":4,
             "type":"clothing"
         },
         {
-            "id":"85",
+            "id":85,
             "name":"fine clothing",
             "description":"This set of clothes is designed specifically to be expensive and to show it, including fancy, tailored clothes in whatever fashion happens to be the current style in the courts of the nobles. Precious metals and gems could be worked into the clothing.",
-            "weight":"6",
+            "weight":6,
             "type":"clothing"
         },
         {
-            "id":"86",
+            "id":86,
             "name":"traveler's clothing",
             "description":"This set of clothes could consist of boots, a wool skirt or breeches, a sturdy belt, a shirt (perhaps with a vest or jacket), and an ample cloak with a hood.",
-            "weight":"4",
+            "weight":4,
             "type":"clothing"
         },
         {
-            "id":"87",
+            "id":87,
             "name":"component pouch",
             "description":"A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"88",
+            "id":88,
             "name":"crowbar",
             "description":"Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"89",
+            "id":89,
             "name":"sprig of mistletoe",
             "description":"A druid can use a Sprig of Mistletoe (or holly) as a spellcasting focus, as described in the Spellcasting section.",
-            "weight":"0.1",
+            "weight":0.1,
             "type":"druidic focus"
         },
         {
-            "id":"90",
+            "id":90,
             "name":"totem",
             "description":"A druid can use a Totem as a spellcasting focus, as described in the Spellcasting section.",
-            "weight":"0.2",
+            "weight":0.2,
             "type":"druidic focus"
         },
         {
-            "id":"91",
+            "id":91,
             "name":"wooden staff",
             "description":"A druid can use a Wooden Staff as a spellcasting focus, as described in the Spellcasting section.",
-            "weight":"4",
+            "weight":4,
             "type":"druidic focus"
         },
         {
-            "id":"92",
+            "id":92,
             "name":"yew wand",
             "description":"A druid can use a Yew Wand as a spellcasting focus, as described in the Spellcasting section.",
-            "weight":"1",
+            "weight":1,
             "type":"druidic focus"
         },
         {
-            "id":"93",
+            "id":93,
             "name":"fishing tackle",
             "description":"This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"94",
+            "id":94,
             "name":"flask",
             "description":"A flask can hold 1 pint of liquid.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"95",
+            "id":95,
             "name":"tankard",
             "description":"A tankard can hold 1 pint of liquid.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"96",
+            "id":96,
             "name":"grappling hook",
             "description":"When tied to the end of a rope, a grappling hook can secure the rope to a battlement, window ledge, tree limb, or other protrusion.",
-            "weight":"4"
+            "weight":4
         },
         {
-            "id":"97",
+            "id":97,
             "name":"hammer",
             "description":"This one-handed hammer with an iron head is useful for pounding pitons into a wall.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"98",
+            "id":98,
             "name":"sledge hammer",
             "description":"This two-handed, iron-headed hammer is good for smashing open treasure chests.",
-            "weight":"10"
+            "weight":10
         },
         {
-            "id":"99",
+            "id":99,
             "name":"healer's kit",
             "description":"This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses. As an action, you can expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"100",
+            "id":100,
             "name":"amulet",
             "description":"A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus, as described in the Spellcasting section. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.",
-            "weight":"1",
+            "weight":1,
             "type":"holy symbol"
         },
         {
-            "id":"101",
+            "id":101,
             "name":"emblem",
             "description":"A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus, as described in the Spellcasting section. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"holy symbol"
         },
         {
-            "id":"102",
+            "id":102,
             "name":"reliquary",
             "description":"A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus, as described in the Spellcasting section. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.",
-            "weight":"2",
+            "weight":2,
             "type":"holy symbol"
         },
         {
-            "id":"103",
+            "id":103,
             "name":"holy water (flask)",
             "description":"As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.\n\nA cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-level spell slot.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"104",
+            "id":104,
             "name":"hourglass",
             "description":"A standard hourglass used to measure the passage of time.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"105",
+            "id":105,
             "name":"hunting trap",
             "description":"When you use your action to set it, this trap forms a saw-toothed steel ring that snaps shut when a creature steps on a pressure plate in the center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on the plate must succeed on a DC 13 Dexterity saving throw or take 1d4 piercing damage and stop moving. Thereafter, until the creature breaks free of the trap, its movement is limited by the length of the chain (typically 3 feet long). A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped creature.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"106",
+            "id":106,
             "name":"ink (1 ounce bottle)",
             "description":"Ink is typically used with an ink pen to write.",
-            "weight":"0.1"
+            "weight":0.1
         },
         {
-            "id":"107",
+            "id":107,
             "name":"jug",
             "description":"A jug can hold 1 gallon of liquid.",
-            "weight":"4"
+            "weight":4
         },
         {
-            "id":"108",
+            "id":108,
             "name":"ladder (10 foot)",
             "description":"This item is a straight, simple wooden ladder.",
-            "weight":"25"
+            "weight":25
         },
         {
-            "id":"109",
+            "id":109,
             "name":"lamp",
             "description":"A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"110",
+            "id":110,
             "name":"bullseye lantern",
             "description":"A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"111",
+            "id":111,
             "name":"hooded lantern",
             "description":"A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"112",
+            "id":112,
             "name":"lock",
             "description":"A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. Your DM may decide that better locks are available for higher prices.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"113",
+            "id":113,
             "name":"magnifying glass",
             "description":"This lens allows a closer look at small objects. It is also useful as a substitute for flint and steel when starting fires. Lighting a fire with a magnifying glass requires light as bright as sunlight to focus, tinder to ignite, and about 5 minutes for the fire to ignite. A magnifying glass grants advantage on any ability check made to appraise or inspect an item that is small or highly detailed.",
-            "weight":"0.25"
+            "weight":0.25
         },
         {
-            "id":"114",
+            "id":114,
             "name":"manacles",
             "description":"These metal restraints can bind a Small or Medium creature. Escaping the manacles requires a successful DC 20 Dexterity check. Breaking them requires a successful DC 20 Strength check. Each set of manacles comes with one key. Without the key, a creature proficient with thieves' tools can pick the manacles' lock with a successful DC 15 Dexterity check. Manacles have 15 hit points.",
-            "weight":"6"
+            "weight":6
         },
         {
-            "id":"115",
+            "id":115,
             "name":"mess kit",
             "description":"This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"116",
+            "id":116,
             "name":"steel mirror",
             "description":"A steel mirror is handy when you want to look around corners, signal friends with reflected sunlight, keep an eye on a medusa, make sure that you look good enough to present yourself to the queen, or examine wounds that you’ve received on hard-to-see parts of your body.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"117",
+            "id":117,
             "name":"oil (flask)",
             "description":"Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"118",
+            "id":118,
             "name":"paper (1 sheet)",
             "description":"A sheet of standard paper is made from cloth fibers.",
-            "weight":"0.01"
+            "weight":0.01
         },
         {
-            "id":"119",
+            "id":119,
             "name":"parchment (1 sheet)",
             "description":"A sheet of parchment is a piece of goat hide or sheepskin that has been prepared for writing on.",
-            "weight":"0.02"
+            "weight":0.02
         },
         {
-            "id":"120",
+            "id":120,
             "name":"perfume (vial)",
             "description":"A fragrant commodity typically used by the wealthy.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"121",
+            "id":121,
             "name":"miner's pick",
             "description":"A miner's pick is designed to concentrate the force of its blow on a small area.",
-            "weight":"10"
+            "weight":10
         },
         {
-            "id":"122",
+            "id":122,
             "name":"piton",
             "description":"When a wall doesn’t offer handholds and footholds, you can make your own. A piton is a steel spike with an eye through which you can loop a rope.",
-            "weight":"0.25"
+            "weight":0.25
         },
         {
-            "id":"123",
+            "id":123,
             "name":"basic poison (vial)",
             "description":"You can use the poison in this vial to coat one slashing or piercing weapon or up to three pieces of ammunition. Applying the poison takes an action. A creature hit by the poisoned weapon or ammunition must make a DC 10 Constitution saving throw or take 1d4 poison damage. Once applied, the poison retains potency for 1 minute before drying.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"124",
+            "id":124,
             "name":"pole (10 foot)",
             "description":"When you suspect a trap, you can put the end of your 10-foot pole through that hole in the wall instead of reaching in with your hand.",
-            "weight":"7"
+            "weight":7
         },
         {
-            "id":"125",
+            "id":125,
             "name":"iron pot",
             "description":"An iron pot can hold 1 gallon of liquid.",
-            "weight":"10"
+            "weight":10
         },
         {
-            "id":"126",
+            "id":126,
             "name":"potion of healing",
             "description":"A character who drinks the magical red fluid in this vial regains 2d4 + 2 hit points. Drinking or administering a potion takes an action.",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"potion"
         },
         {
-            "id":"127",
+            "id":127,
             "name":"pouch",
             "description":"A cloth or leather pouch can hold 1/5 cubic foot/ 6 pounds of gear - or up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"128",
+            "id":128,
             "name":"quiver",
             "description":"A quiver can hold up to 20 arrows.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"130",
+            "id":130,
             "name":"portable ram",
             "description":"You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check.",
-            "weight":"35"
+            "weight":35
         },
         {
-            "id":"131",
+            "id":131,
             "name":"rations (1 day)",
             "description":"Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
-            "weight":"2",
+            "weight":2,
             "type":"consumable"
         },
         {
-            "id":"132",
+            "id":132,
             "name":"robes",
             "description":"A standard set of robes.",
-            "weight":"4",
+            "weight":4,
             "type":"clothing"
         },
         {
-            "id":"133",
+            "id":133,
             "name":"hempen rope (50 feet)",
             "description":"Rope, has 2 hit points and can be burst with a DC 17 Strength check.",
-            "weight":"10"
+            "weight":10
         },
         {
-            "id":"134",
+            "id":134,
             "name":"silk rope (50 feet)",
             "description":"Rope, has 2 hit points and can be burst with a DC 17 Strength check.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"135",
+            "id":135,
             "name":"sack",
             "description":"A sack can hold 1 cubic foot/ 30 pounds of gear.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"136",
+            "id":136,
             "name":"merchant's scale",
             "description":"A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. With it, you can measure the exact weight of small objects, such as raw precious metals or trade goods, to help determine their worth.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"137",
+            "id":137,
             "name":"sealing wax",
             "description":"When you press a signet ring into warm sealing wax, you leave an identifying mark.",
-            "weight":"0.2"
+            "weight":0.2
         },
         {
-            "id":"138",
+            "id":138,
             "name":"shovel",
             "description":"A standard shovel used for digging.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"139",
+            "id":139,
             "name":"signal whistle",
             "description":"A small whistle used for signaling.",
-            "weight":"0.1"
+            "weight":0.1
         },
         {
-            "id":"140",
+            "id":140,
             "name":"signet ring",
             "description":"Each signet ring has a distinctive design carved into it. When you press this ring into warm sealing wax, you leave an identifying mark.",
-            "weight":"0.1",
+            "weight":0.1,
             "type":"ring"
         },
         {
-            "id":"141",
+            "id":141,
             "name":"soap",
             "description":"A commodity used for bathing.",
-            "weight":"0.1"
+            "weight":0.1
         },
         {
-            "id":"142",
+            "id":142,
             "name":"spellbook",
             "description":"Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"143",
+            "id":143,
             "name":"iron spike",
             "description":"Standard iron spike typically used with a hammer.",
-            "weight":"0.5"
+            "weight":0.5
         },
         {
-            "id":"144",
+            "id":144,
             "name":"spyglass",
             "description":"Objects viewed through a spyglass are magnified to twice their size.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"145",
+            "id":145,
             "name":"two-person tent",
             "description":"A simple and portable canvas shelter, a tent sleeps two.",
-            "weight":"20"
+            "weight":20
         },
         {
-            "id":"146",
+            "id":146,
             "name":"tinderbox",
             "description":"This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"147",
+            "id":147,
             "name":"torch",
             "description":"A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"148",
+            "id":148,
             "name":"vial",
             "description":"A vial can hold 4 ounces of liquid",
-            "weight":"0.25"
+            "weight":0.25
         },
         {
-            "id":"149",
+            "id":149,
             "name":"waterskin",
             "description":"A waterskin can hold 4 pints of liquid.",
-            "weight":"5",
+            "weight":5,
             "charges":"5"
         },
         {
-            "id":"150",
+            "id":150,
             "name":"whetstone",
             "description":"A standard whetstone used to sharpen blades.",
-            "weight":"1"
+            "weight":1
         },
         {
-            "id":"151",
+            "id":151,
             "name":"alchemist's supplies",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"8",
+            "weight":8,
             "type":"artisan's tools"
         },
         {
-            "id":"152",
+            "id":152,
             "name":"brewer's supplies",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"9",
+            "weight":9,
             "type":"artisan's tools"
         },
         {
-            "id":"153",
+            "id":153,
             "name":"calligrapher's supplies",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"154",
+            "id":154,
             "name":"carpenter's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"6",
+            "weight":6,
             "type":"artisan's tools"
         },
         {
-            "id":"155",
+            "id":155,
             "name":"cartographer's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"6",
+            "weight":6,
             "type":"artisan's tools"
         },
         {
-            "id":"156",
+            "id":156,
             "name":"cobbler's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"157",
+            "id":157,
             "name":"cook's utensils",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"8",
+            "weight":8,
             "type":"artisan's tools"
         },
         {
-            "id":"158",
+            "id":158,
             "name":"glassblower's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"159",
+            "id":159,
             "name":"jeweler's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"2",
+            "weight":2,
             "type":"artisan's tools"
         },
         {
-            "id":"160",
+            "id":160,
             "name":"leatherworker's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"161",
+            "id":161,
             "name":"mason's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"8",
+            "weight":8,
             "type":"artisan's tools"
         },
         {
-            "id":"162",
+            "id":162,
             "name":"painter's supplies",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"163",
+            "id":163,
             "name":"potter's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"3",
+            "weight":3,
             "type":"artisan's tools"
         },
         {
-            "id":"164",
+            "id":164,
             "name":"smith's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"8",
+            "weight":8,
             "type":"artisan's tools"
         },
         {
-            "id":"165",
+            "id":165,
             "name":"tinker's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"10",
+            "weight":10,
             "type":"artisan's tools"
         },
         {
-            "id":"166",
+            "id":166,
             "name":"weaver's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"167",
+            "id":167,
             "name":"woodcarver's tools",
             "description":"These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.",
-            "weight":"5",
+            "weight":5,
             "type":"artisan's tools"
         },
         {
-            "id":"168",
+            "id":168,
             "name":"disguise kit",
             "description":"This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"169",
+            "id":169,
             "name":"forgery kit",
             "description":"This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a physical forgery of a document.",
-            "weight":"5"
+            "weight":5
         },
         {
-            "id":"170",
+            "id":170,
             "name":"dice set",
             "description":"If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set.",
-            "weight":"0.25",
+            "weight":0.25,
             "type":"gaming set"
         },
         {
-            "id":"171",
+            "id":171,
             "name":"dragonchess set",
             "description":"If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set.",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"gaming set"
         },
         {
-            "id":"172",
+            "id":172,
             "name":"playing card set",
             "description":"If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set.",
-            "weight":"0.25",
+            "weight":0.25,
             "type":"gaming set"
         },
         {
-            "id":"173",
+            "id":173,
             "name":"three-dragon ante set",
             "description":"If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set.",
-            "weight":"0.5",
+            "weight":0.5,
             "type":"gaming set"
         },
         {
-            "id":"174",
+            "id":174,
             "name":"herbalism kit",
             "description":"This kit contains a variety of instruments such as clippers, mortar and pestle, and pouches and vials used by herbalists to create remedies and potions. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to identify or apply herbs. Also, proficiency with this kit is required to create antitoxin and any potion of healing.",
-            "weight":"3"
+            "weight":3
         },
         {
-            "id":"175",
+            "id":175,
             "name":"bagpipes",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"6",
+            "weight":6,
             "type":"instrument"
         },
         {
-            "id":"176",
+            "id":176,
             "name":"drum",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"3",
+            "weight":3,
             "type":"instrument"
         },
         {
-            "id":"177",
+            "id":177,
             "name":"dulcimer",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"10",
+            "weight":10,
             "type":"instrument"
         },
         {
-            "id":"178",
+            "id":178,
             "name":"flute",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"1",
+            "weight":1,
             "type":"instrument"
         },
         {
-            "id":"179",
+            "id":179,
             "name":"lute",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"2",
+            "weight":2,
             "type":"instrument"
         },
         {
-            "id":"180",
+            "id":180,
             "name":"lyre",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"2",
+            "weight":2,
             "type":"instrument"
         },
         {
-            "id":"181",
+            "id":181,
             "name":"horn",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"2",
+            "weight":2,
             "type":"instrument"
         },
         {
-            "id":"182",
+            "id":182,
             "name":"pan flute",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"2",
+            "weight":2,
             "type":"instrument"
         },
         {
-            "id":"183",
+            "id":183,
             "name":"shawm",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"1",
+            "weight":1,
             "type":"instrument"
         },
         {
-            "id":"184",
+            "id":184,
             "name":"viol",
             "description":"If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus.",
-            "weight":"1",
+            "weight":1,
             "type":"instrument"
         },
         {
-            "id":"185",
+            "id":185,
             "name":"navigator's tools",
             "description":"This set of instruments is used for navigation at sea. Proficiency with navigator's tools lets you chart a ship's course and follow navigation charts. In addition, these tools allow you to add your proficiency bonus to any ability check you make to avoid getting lost at sea.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"186",
+            "id":186,
             "name":"poisoner's kit",
             "description":"A poisoner's kit includes the vials, chemicals, and other equipment necessary for the creation of poisons. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to craft or use poisons.",
-            "weight":"2"
+            "weight":2
         },
         {
-            "id":"187",
+            "id":187,
             "name":"thieves' tools",
             "description":"This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.",
-            "weight":"1"
+            "weight":1
         }
     ]
 }

@@ -152,7 +152,59 @@ const characterSchema = new mongoose.Schema({
     },
     backstory: {
         type: String
-    }
+    },
+    inventory: [{
+        name: {
+            type: String,
+            required: true
+        },
+        id: {
+            type: Number,
+            required: true
+        },
+        weight: {
+            type: Number,
+            required: true
+        },
+        type: {
+            type: String
+        },
+        subType: {
+            type: String
+        },
+        damage: [{
+            amount: {
+                type: String
+            },
+            type: {
+                type: String
+            }
+        }],
+        properties: [{
+            type: String
+        }],
+        armorClass: {
+            type: {
+                type: String
+            },
+            mod: {
+                type: String
+            },
+            modMax: {
+                type: Number
+            },
+            base: {
+                type: Number
+            }
+        },
+        stealthDisadvantage: {
+            type: Boolean
+        },
+        strenthRequirement: {
+            type: Number
+        }
+
+    }]
 });
 
 const Character = mongoose.model('character', characterSchema);
