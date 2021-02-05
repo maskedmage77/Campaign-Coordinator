@@ -1,0 +1,240 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+
+        <div class="contentView" id="contentView">
+
+            <%- include('./partials/nav.ejs') %>
+
+            <div class="mainWindow">
+
+                <style>
+
+                .checkbox {
+                    width: 100%;
+                    background-color: var(--window);
+                    padding: 0.5em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-radius: 0.5em;
+                    box-sizing: border-box;
+                    text-align: center;
+                    box-shadow:
+                    4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+                    -4px -4px 4px 0 rgba(0, 0, 0, 0.1);
+                    -webkit-touch-callout: none; /* iOS Safari */
+                    -webkit-user-select: none; /* Safari */
+                     -khtml-user-select: none; /* Konqueror HTML */
+                       -moz-user-select: none; /* Old versions of Firefox */
+                        -ms-user-select: none; /* Internet Explorer/Edge */
+                            user-select: none; /* Non-prefixed version, currently
+                                                  supported by Chrome, Edge, Opera and Firefox */
+                }
+
+                .checkboxComponents {
+                    display:grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-gap: 1em;
+                }
+
+                .checkboxClasses {
+                    display:grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    grid-gap: 1em;
+                }
+
+                .TwoInputs{
+                    display:grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 1em;
+                }
+                .ThreeInputs{
+                    display:grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-gap: 1em;
+                }
+
+                </style>
+
+                <div class="contentWindow">
+                    <h2 class="centerText">Create Spell</h2>
+                    <form autocomplete="off">
+                        <div class="TwoInputs">
+                            <input name="name" placeholder="name" required></input>
+                            <div class="checkbox" id="ritual">ritual</div>
+                        </div>
+                        <div class="TwoInputs">
+                            <input name="level" placeholder="level" type="number" required></input>
+                            <input name="school" placeholder="school" required></input>
+                        </div>
+                        <div class="TwoInputs">
+                            <input name="castingTime" placeholder="casting time" required></input>
+                            <input name="range" placeholder="range" required></input>
+                        </div>
+                        <div class="TwoInputs">
+                            <div class="checkboxComponents">
+                                <div class="checkbox">V</div>
+                                <div class="checkbox">S</div>
+                                <div class="checkbox">M</div>
+                            </div>
+                            <input name="material" placeholder="material"></input>
+                        </div>
+
+                        <input name="duration" placeholder="duration" required></input>
+                        <textarea name="description" placeholder="description" required></textarea>
+                        <textarea name="atHigherLevel" placeholder="at higher level" style="height: 5em;"></textarea>
+                        <div class="checkboxClasses">
+                            <div class="checkbox">bard</div>
+                            <div class="checkbox">cleric</div>
+                            <div class="checkbox">druid</div>
+                            <div class="checkbox">paladin</div>
+                            <div class="checkbox">ranger</div>
+                            <div class="checkbox">sorcerer</div>
+                            <div class="checkbox">warlock</div>
+                            <div class="checkbox">wizard</div>
+                        </div>
+                        <button type="submit">Create Spell</button>
+                    </form>
+
+                    <script>
+                    var form = document.querySelector('form');
+                    var v = false;
+                    var s = false;
+                    var m = false;
+                    var ritual = false;
+                    var classes = [];
+                    var source = "Player's Handbook";
+
+                    var checkboxComponents = document.querySelector('div.checkboxComponents');
+                    var checkboxClasses = document.querySelector('div.checkboxClasses');
+
+                    checkboxComponents.querySelectorAll('div').forEach((item, i) => {
+                        var selected = false;
+                        item.addEventListener('click', function() {
+                            if (selected) {
+                                item.classList.remove('accentColor');
+                                selected = false;
+                                if (item.innerHTML === "V") {
+                                    v = false;
+                                }
+                                else if (item.innerHTML === "S") {
+                                    s = false;
+                                }
+                                else if (item.innerHTML === "M") {
+                                    m = false;
+                                }
+                            }
+                            else {
+                                item.classList.add('accentColor');
+                                selected = true;
+                                if (item.innerHTML === "V") {
+                                    v = true;
+                                }
+                                else if (item.innerHTML === "S") {
+                                    s = true;
+                                }
+                                else if (item.innerHTML === "M") {
+                                    m = true;
+                                }
+                            }
+                        });
+                    });
+
+                    checkboxClasses.querySelectorAll('div').forEach((item, i) => {
+                        var selected = false;
+                        item.addEventListener('click', function() {
+                            if (selected) {
+                                item.classList.remove('accentColor');
+                                selected = false;
+
+                                var index = classes.indexOf(item.innerHTML);
+                                if (index > -1) {
+                                    classes.splice(index, 1);
+                                }
+                            }
+                            else {
+                                item.classList.add('accentColor');
+                                selected = true;
+                                classes.push(item.innerHTML);
+
+                            }
+                        });
+                    });
+
+
+                    document.getElementById('ritual').addEventListener('click', function() {
+                        if (ritual) {
+                            document.getElementById('ritual').classList.remove('accentColor');
+                            ritual = false;
+                        }
+                        else {
+                            document.getElementById('ritual').classList.add('accentColor');
+                            ritual = true;
+                        }
+                    });
+
+
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+
+                        var name = form.name.value.toLowerCase().trim();
+                        var level = parseInt(form.level.value.trim());
+                        var school = form.school.value.toLowerCase().trim();
+                        var castingTime = form.castingTime.value.toLowerCase().trim();
+                        var range = form.range.value.toLowerCase().trim();
+                        var material = form.material.value.toLowerCase().trim();
+                        var duration = form.duration.value.toLowerCase().trim();
+                        var description = form.description.value.trim();
+                        var atHigherLevel = form.atHigherLevel.value.trim();
+                        if (material !== "") {
+                            var components = {v,s,m,material};
+                        }
+                        else {
+                            var components = {v,s,m};
+                        }
+
+
+                        console.log(ritual);
+
+                        try {
+                            const res = await fetch('/spells/create', {
+                                method: 'POST',
+                                body: JSON.stringify({
+                                    name,
+                                    ritual,
+                                    level,
+                                    school,
+                                    castingTime,
+                                    range,
+                                    components,
+                                    duration,
+                                    description,
+                                    atHigherLevel,
+                                    classes,
+                                    source
+                                }),
+                                headers: { 'Content-Type': 'application/json' }
+                            });
+                            const data = await res.json();
+                            if (data.spell) {
+                                location.assign('/spells/create');
+                            }
+                        }
+                        catch (err) {
+                            console.log(err);
+                        }
+                    });
+
+
+                    </script>
+
+                </div>
+
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+
+        </div>
+
+    </body>
+</html>

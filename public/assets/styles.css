@@ -520,12 +520,19 @@ textarea {
 }
 
 /* characters page styles */
+
 .charactersBox {
     display: grid;
     column-gap: 1em;
     row-gap: 1em;
     margin-bottom: 1em;
     grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 900px) {
+    .charactersBox {
+        grid-template-columns: 1fr;
+    }
 }
 
 .characterItem {
@@ -543,8 +550,8 @@ textarea {
 }
 
 .characterName {
-    font-size: 1.5em;
-    margin-bottom: 0.375em;
+    font-size: 1.25em;
+    margin: 1em;
     color: white !important;
 }
 

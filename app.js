@@ -10,6 +10,7 @@ const gamesRoutes = require('./routes/gamesRoutes');
 const charactersRoutes = require('./routes/charactersRoutes');
 const Post = require('./models/Post');
 const Game = require('./models/Game');
+const Spell = require('./models/Spell');
 const User = require('./models/User');
 const socketConnections = require('./socketConnections');
 
@@ -75,3 +76,19 @@ app.use(authRoutes);
 app.use('/characters', charactersRoutes);
 
 app.use('/games', gamesRoutes);
+
+app.get('/spells/create', requireAuth, (req, res) => {
+    res.render('spellsCreate', {title: 'Create Spell'});
+})
+
+app.post('/spells/create', requireAuth, async (req, res) => {
+    // const { name, password, description } = req.body;
+    try {
+        const spell = await Spell.create(req.body);
+        return res.status(201).json({ spell: spell.name });
+        res.redirect('/spells/create');
+    }
+    catch (err) {
+        return res.status(400);
+    }
+});
