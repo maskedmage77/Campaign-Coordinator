@@ -38,12 +38,16 @@ gameSchema.pre('save', async function(next) {
 });
 
 // static method to
-gameSchema.statics.pass = async function(_id, password, user, role) {
+gameSchema.statics.pass = async function(_id, password, user, role, character) {
     let game = await this.findOne({ _id });
     game.players.forEach(i => {
-        if (i.email === user && i.role === 'Spectator') {
+        if (i.email === user && i.role === 'Spectator' && role === 'Spectator') {
             console.log('yeet')
             throw Error('already spectator');
+        }
+        else if (i.email === user && i.role === 'Player' && i.character === character) {
+            console.log('yeet')
+            throw Error('character already in game');
         }
     });
 

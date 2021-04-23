@@ -68,19 +68,7 @@ module.exports.create_post = async (req, res) => {
     });
 }
 
-module.exports.find_post = async (req, res) => {
-    const { name } = req.body;
-    try {
-        const game = await Game.find({name}).select({ name, "players.length": 1});
-        res.status(200).json({ game });
-    }
-    catch (err) {
-        const errors = handleErrors(err);
-        return res.status(400).json({ errors });
-    }
-}
-
-module.exports.join_post = async (req, res) => {
+module.exports.join_spectator_post = async (req, res) => {
     const token = req.cookies.jwt;
     const checkUser = async () => {
         return new Promise((resolve, reject) => {
@@ -112,6 +100,53 @@ module.exports.join_post = async (req, res) => {
             return res.status(400).json({ errors });
         }
     });
+}
+
+module.exports.join_player_post = async (req, res) => {
+    const token = req.cookies.jwt;
+    const checkUser = async () => {
+        return new Promise((resolve, reject) => {
+            if (token) {
+                jwt.verify(token, jwtSecret, async (err, decodedToken) => {
+                    let user = await User.findById(decodedToken.id);
+                    const data = user.email;
+                    resolve(data);
+                });
+            } else { reject('some error')};
+        });
+    };
+
+    checkUser().then(async (data) => {
+        const user = data;
+        const { _id, role, password, character } = req.body;
+
+        try {
+            const pass = await Game.pass(_id, password, user, role, character);
+            await pass.players.push({
+                'email': user,
+                'role': role,
+                'character': character
+            });
+            await pass.save();
+            res.status(200).json({ _id });
+        }
+        catch (err) {
+            const errors = handleErrors(err);
+            return res.status(400).json({ errors });
+        }
+    });
+}
+
+module.exports.find_post = async (req, res) => {
+    const { name } = req.body;
+    try {
+        const game = await Game.find({name}).select({ name, "players.length": 1});
+        res.status(200).json({ game });
+    }
+    catch (err) {
+        const errors = handleErrors(err);
+        return res.status(400).json({ errors });
+    }
 }
 
 module.exports.play_post = async (req, res) => {

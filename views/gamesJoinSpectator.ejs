@@ -5,17 +5,17 @@
         <%- include('./partials/nav.ejs') %>
             <div class="mainWindow">
                 <div class="findWindow" id="createGame">
-                    <h2>Find Game</h2>
+                    <h2>Join Game as Spectator</h2>
                     <div class="gamesList">
                     </div>
 
                     <form id="findGame">
                         <input type="text" name="name" placeholder="Game name..." required/>
                         <div id="nameError" class="error_div"></div>
-                        <button>Find Game</button>
+                        <button>Search for Game</button>
                     </form>
                 </div>
-                <form id="joinGame" style="display:none" method="post" action="join">
+                <form id="joinGame" style="display:none" method="post" action="join" autocomplete="off">
                     <input name="game" id="inputGame" value="">
                     <input name="role" id="inputRole" value="">
                 </form>
@@ -62,7 +62,6 @@
                                         '<h3 class="gameDetailName">'+game.name+'</h3>'+
                                         '<p>Number of players: </p><p>'+game.players.length+'</p>'+
                                         '<button id="'+game._id+':'+'Spectator'+'" class="bottomMargin">Join as Spectator</button>'+
-                                        '<button id="'+game._id+':'+'Player'+'" class="bottomMargin">Join as Player</button>'+
                                     '</div>';
                                     document.getElementById(game._id+':'+'Spectator').addEventListener('click', () => {
                                         //window.location.replace("/games/join/"+game._id);
@@ -84,7 +83,7 @@
                                             const password = document.getElementById(game._id).password.value;
                                             try {
                                                 passwordError.textContent = '';
-                                                const res = await fetch('/games/join', {
+                                                const res = await fetch('/games/join/spectator', {
                                                     method: 'POST',
                                                     body: JSON.stringify({ password, _id : game._id, role: 'Spectator' }),
                                                     headers: { 'Content-Type': 'application/json' }

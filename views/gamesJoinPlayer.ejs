@@ -1,0 +1,122 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <div class="contentView">
+        <%- include('./partials/nav.ejs') %>
+            <div class="mainWindow">
+                <div class="findWindow" id="createGame">
+                    <h2>Join Game as Player</h2>
+                    <div class="gamesList">
+                    </div>
+
+                    <form id="findGame">
+                        <input type="text" name="name" placeholder="Game name..." required/>
+                        <div id="nameError" class="error_div"></div>
+                        <button>Search for Game</button>
+                    </form>
+                </div>
+                <form id="joinGame" style="display:none" method="post" action="join" autocomplete="off">
+                    <input name="game" id="inputGame" value="">
+                    <input name="role" id="inputRole" value="">
+                </form>
+            </div>
+            <script>
+                const form = document.querySelector('#findGame');
+                const nameError = document.querySelector('#nameError');
+                const gamesList = document.querySelector('.gamesList');
+
+                gamesList.style.display = "none";
+
+                nameError.classList.add('hidden');
+
+                window.addEventListener('load', function () {
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        nameError.classList.add('hidden');
+
+                        // reset errors
+                        nameError.textContent = '';
+                        gamesList.innerHTML = '';
+
+                        // get the values
+                        const name = form.name.value;
+
+                        try {
+                            const res = await fetch('/games/find', {
+                                method: 'POST',
+                                body: JSON.stringify({ name }),
+                                headers: { 'Content-Type': 'application/json' }
+                            });
+                            const data = await res.json();
+                            if (data.errors) {
+                                nameError.textContent = data.errors.name;
+                                if (nameError.textContent !== '') {
+                                    nameError.classList.remove('hidden');
+                                }
+
+                            }
+                            if (data.game) {
+                                gamesList.style.display = "grid";
+                                data.game.forEach (game => {
+                                    gamesList.innerHTML +=
+                                    '<div class="gameDetail" data-game="'+game._id+'">'+
+                                        '<h3 class="gameDetailName">'+game.name+'</h3>'+
+                                        '<p>Number of players: </p><p>'+game.players.length+'</p>'+
+                                        '<button id="'+game._id+':'+'Player'+'" class="bottomMargin">Join as Player</button>'+
+                                    '</div>';
+                                    document.getElementById(game._id+':'+'Player').addEventListener('click', () => {
+                                        //window.location.replace("/games/join/"+game._id);
+                                        document.getElementById(game._id+':'+'Player').style.display = "none";
+                                        gamesList.innerHTML =
+                                        '<div class="gameDetail" data-game="'+game._id+'">'+
+                                            '<h3 class="gameDetailName">'+game.name+'</h3>'+
+                                            '<p>Number of players: </p><p>'+game.players.length+'</p>'+
+                                            '<form id="'+game._id+'">'+
+                                                '<input style="display: none;" name="game" id="inputGame" value="'+game._id+'">'+
+                                                '<input style="display: none;" name="character" value="<%= character %>">'+
+                                                '<input type="password" name="password" id="inputGame" value="" placeholder="password...">'+
+                                                '<div id="passwordError" class="errorDiv hidden"></div>'+
+                                                '<button>Join as Player</button>'+
+                                            '</form>'+
+                                        '</div>';
+                                        document.getElementById(game._id).addEventListener('submit', async (e) => {
+                                            e.preventDefault();
+                                            const passwordError = document.querySelector('#passwordError');
+                                            const password = document.getElementById(game._id).password.value;
+                                            const character = document.getElementById(game._id).character.value;
+                                            try {
+                                                passwordError.textContent = '';
+                                                const res = await fetch('/games/join/player', {
+                                                    method: 'POST',
+                                                    body: JSON.stringify({ password, _id: game._id, role: 'Player', character }),
+                                                    headers: { 'Content-Type': 'application/json' }
+                                                });
+                                                const data = await res.json();
+                                                if (data.errors) {
+                                                    passwordError.textContent = data.errors.password;
+                                                    if (passwordError.textContent !== '') {
+                                                        passwordError.classList.remove('hidden');
+                                                    }
+                                                }
+                                                if (data._id) {
+                                                    location.assign('/games');
+                                                }
+                                            }
+                                            catch (err) {
+                                                console.log(err);
+                                            }
+                                        });
+                                    });
+                                });
+                            }
+                        }
+                        catch (err) {
+                            console.log(err);
+                        }
+                    });
+                });
+            </script>
+        <%- include('./partials/footer.ejs') %>
+        </div>
+    </body>
+</html>
